@@ -1,0 +1,71 @@
+{
+  "platform_id": "bugcrowd",
+  "auth_env": "BUGCROWD_API_KEY",
+  "default_output_root": "C:\\Users\\zqmco\\.hermes\\shared\\skills\\zqm-bounty-hub\\outputs",
+  "review_policy": {
+    "requires_authorized_scope": true,
+    "managed_programs": true,
+    "do_not_disrupt_service": true,
+    "do_not_exfiltrate_data": true,
+    "rate_limit_handling": "required",
+    "crowd_match_aware": true
+  },
+  "targets": [
+    {
+      "target_id": "bc_parsec_ai",
+      "program_name": "Parsec AI Bug Bounty",
+      "program_slug": "parsec",
+      "asset_type": "desktop_app",
+      "scope_summary": "Parsec desktop remote-gaming/desktop app and related services",
+      "scope_url": "https://bugcrowd.com/parsec",
+      "check_types": ["desktop_app", "network"],
+      "severity_focus": ["critical", "high", "medium", "low"],
+      "reported_bounty_examples": [
+        {"severity": "critical", "amount_usd": 5000, "source": "Bugcrowd program benchmark", "date": "2026-07-05"}
+      ],
+      "review_tags": ["remote_desktop", "gaming", "desktop"],
+      "notes": "Representative Bugcrowd-managed desktop-app program; managed outreach applies"
+    },
+    {
+      "target_id": "bc_mozilla",
+      "program_name": "Mozilla",
+      "program_slug": "mozilla",
+      "asset_type": "web_platform",
+      "scope_summary": "Firefox browser and Mozilla web properties",
+      "scope_url": "https://bugcrowd.com/mozilla",
+      "check_types": ["web_app", "desktop_app", "api"],
+      "severity_focus": ["critical", "high", "medium", "low"],
+      "reported_bounty_examples": [],
+      "review_tags": ["browser", "firefox"],
+      "notes": "Long-running Bugcrowd program; mixed severity findings"
+    },
+    {
+      "target_id": "bc_tesla",
+      "program_name": "Tesla / Energy",
+      "program_slug": "tesla",
+      "asset_type": "iot_automotive",
+      "scope_summary": "Vehicle and energy product APIs/clients",
+      "scope_url": "https://bugcrowd.com/tesla",
+      "check_types": ["api", "mobile", "web_app"],
+      "severity_focus": ["critical", "high", "medium"],
+      "reported_bounty_examples": [
+        {"severity": "high", "amount_usd": 10000, "source": "Bugcrowd program benchmark", "date": "2026-07-05"}
+      ],
+      "review_tags": ["vehicle", "iot", "energy"],
+      "notes": "Flagship Bugcrowd IoT/automotive program; safety-sensitive review required"
+    },
+    {
+      "target_id": "bc_spotify",
+      "program_name": "Spotify",
+      "program_slug": "spotify",
+      "asset_type": "web_platform",
+      "scope_summary": "Spotify web and API surfaces",
+      "scope_url": "https://bugcrowd.com/spotify",
+      "check_types": ["web_app", "api"],
+      "severity_focus": ["critical", "high", "medium", "low"],
+      "reported_bounty_examples": [],
+      "review_tags": ["music", "streaming", "api"],
+      "notes": "Typical mature web/API scope"
+    }
+  ]
+}

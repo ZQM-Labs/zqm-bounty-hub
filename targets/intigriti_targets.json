@@ -1,0 +1,53 @@
+{
+  "platform_id": "intigriti",
+  "auth_env": "INTIGRITI_API_KEY",
+  "default_output_root": "C:\\Users\\zqmco\\.hermes\\shared\\skills\\zqm-bounty-hub\\outputs",
+  "review_policy": {
+    "requires_authorized_scope": true,
+    "gdpr_applicable": true,
+    "do_not_disrupt_service": true,
+    "do_not_exfiltrate_personal_data": true,
+    "rate_limit_handling": "required"
+  },
+  "targets": [
+    {
+      "target_id": "int_ink",
+      "program_name": "Ink",
+      "program_slug": "ink",
+      "asset_type": "web_platform",
+      "scope_summary": "Ink web application and related APIs",
+      "scope_url": "https://intigriti.com/programs/ink",
+      "check_types": ["web_app", "api"],
+      "severity_focus": ["critical", "high", "medium", "low"],
+      "reported_bounty_examples": [],
+      "review_tags": ["saas", "enterprise"],
+      "notes": "Typical Intigriti-hosted SaaS program; EU-oriented review"
+    },
+    {
+      "target_id": "int_european_enterprise",
+      "program_name": "European Enterprise Program",
+      "program_slug": "european_enterprise_example",
+      "asset_type": "web_platform",
+      "scope_summary": "Representative EU-focused enterprise web and API scope",
+      "scope_url": "",
+      "check_types": ["web_app", "api"],
+      "severity_focus": ["critical", "high", "medium", "low"],
+      "reported_bounty_examples": [],
+      "review_tags": ["enterprise", "eu"],
+      "notes": "Placeholder for GDPR-aligned programs; remove or replace with actual program slug before live execution"
+    },
+    {
+      "target_id": "int_live_hack",
+      "program_name": "Live Hacking Event",
+      "program_slug": "live_hacking",
+      "asset_type": "multi",
+      "scope_summary": "Time-boxed event scope announced by program",
+      "scope_url": "",
+      "check_types": ["web_app", "api", "mobile"],
+      "severity_focus": ["critical", "high", "medium"],
+      "reported_bounty_examples": [],
+      "review_tags": ["event", "timeboxed"],
+      "notes": "Use only when event-specific targets are explicitly authorized"
+    }
+  ]
+}

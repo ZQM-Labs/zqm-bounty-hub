@@ -1,0 +1,13 @@
+{
+  "data": {
+    "attributes": {
+      "title": "Safe minimal PoC",
+      "vulnerability_information": "Confirmed non-destructive behavior; no data access or disruption.",
+      "impact": "Minimal impact within scope.",
+      "team_handle": "shopify",
+      "structured_scope_id": "4655",
+      "weakness_id": "63",
+      "severity_rating": "medium"
+    }
+  }
+}

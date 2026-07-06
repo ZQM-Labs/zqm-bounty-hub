@@ -1,0 +1,119 @@
+{
+  "generated_at": "2026-07-06T00:12:27.272006Z",
+  "platform": "hackerone",
+  "scope": "zqm-computing account, authenticated API",
+  "cycles_per_target": 5,
+  "targets_verified": [
+    "basecamp",
+    "anthropic",
+    "shopify",
+    "8x8-bounty",
+    "security",
+    "cloudflare",
+    "flutteruki",
+    "compass-bbp"
+  ],
+  "verification": {
+    "basecamp": {
+      "cycles": 5,
+      "all_status_200": true,
+      "program_metadata_consistent": true,
+      "scope_consistent": true,
+      "weaknesses_consistent": true,
+      "hacktivity_consistent": true,
+      "scopes_count": 19,
+      "weaknesses_count": 50,
+      "reports_count": 0,
+      "verdict": "PASS"
+    },
+    "anthropic": {
+      "cycles": 5,
+      "all_status_200": true,
+      "program_metadata_consistent": true,
+      "scope_consistent": true,
+      "weaknesses_consistent": true,
+      "hacktivity_consistent": true,
+      "scopes_count": 15,
+      "weaknesses_count": 50,
+      "reports_count": 0,
+      "verdict": "PASS"
+    },
+    "shopify": {
+      "cycles": 5,
+      "all_status_200": true,
+      "program_metadata_consistent": true,
+      "scope_consistent": true,
+      "weaknesses_consistent": true,
+      "hacktivity_consistent": true,
+      "scopes_count": 30,
+      "weaknesses_count": 50,
+      "reports_count": 0,
+      "verdict": "PASS"
+    },
+    "8x8-bounty": {
+      "cycles": 5,
+      "all_status_200": true,
+      "program_metadata_consistent": true,
+      "scope_consistent": true,
+      "weaknesses_consistent": true,
+      "hacktivity_consistent": true,
+      "scopes_count": 100,
+      "weaknesses_count": 50,
+      "reports_count": 0,
+      "verdict": "PASS"
+    },
+    "security": {
+      "cycles": 5,
+      "all_status_200": true,
+      "program_metadata_consistent": true,
+      "scope_consistent": true,
+      "weaknesses_consistent": true,
+      "hacktivity_consistent": true,
+      "scopes_count": 33,
+      "weaknesses_count": 50,
+      "reports_count": 0,
+      "verdict": "PASS"
+    },
+    "cloudflare": {
+      "cycles": 5,
+      "all_status_200": true,
+      "program_metadata_consistent": true,
+      "scope_consistent": true,
+      "weaknesses_consistent": true,
+      "hacktivity_consistent": true,
+      "scopes_count": 59,
+      "weaknesses_count": 50,
+      "reports_count": 0,
+      "verdict": "PASS"
+    },
+    "flutteruki": {
+      "cycles": 5,
+      "all_status_200": true,
+      "program_metadata_consistent": true,
+      "scope_consistent": true,
+      "weaknesses_consistent": true,
+      "hacktivity_consistent": true,
+      "scopes_count": 79,
+      "weaknesses_count": 50,
+      "reports_count": 0,
+      "verdict": "PASS"
+    },
+    "compass-bbp": {
+      "cycles": 5,
+      "all_status_200": true,
+      "program_metadata_consistent": true,
+      "scope_consistent": true,
+      "weaknesses_consistent": true,
+      "hacktivity_consistent": true,
+      "scopes_count": 40,
+      "weaknesses_count": 50,
+      "reports_count": 0,
+      "verdict": "PASS"
+    }
+  },
+  "compliance_summary": {
+    "pass": 8,
+    "review": 0,
+    "total": 8
+  }
+}

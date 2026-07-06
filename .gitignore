@@ -1,0 +1,9 @@
+# Runtime / generated artifacts
+outputs/evidence/
+outputs/manifests/
+outputs/.cache/
+references/*.md.bak
+
+# Hermes runtime noise
+*.pyc
+__pycache__/

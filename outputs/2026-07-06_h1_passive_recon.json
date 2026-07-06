@@ -1,0 +1,676 @@
+{
+  "run_id": "20260706012114",
+  "results": [
+    {
+      "host": "launchpad.37signals.com",
+      "target": "basecamp",
+      "dns": {
+        "host": "launchpad.37signals.com",
+        "ip": "104.18.27.46",
+        "error": null
+      },
+      "cert": {
+        "host": "launchpad.37signals.com",
+        "names": [],
+        "count": 0,
+        "error": "The read operation timed out"
+      },
+      "wayback": {
+        "host": "launchpad.37signals.com",
+        "available": false,
+        "url": null,
+        "timestamp": null,
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1016)>"
+      },
+      "github": {
+        "host": "launchpad.37signals.com",
+        "total": 0,
+        "items": [],
+        "error": "HTTP Error 401: Unauthorized"
+      },
+      "headers": {
+        "host": "launchpad.37signals.com",
+        "status": 200,
+        "headers": {
+          "Date": "Mon, 06 Jul 2026 01:21:48 GMT",
+          "Content-Type": "text/html; charset=utf-8",
+          "Content-Length": "4435",
+          "Connection": "close",
+          "Cache-Control": "max-age=0, private, must-revalidate",
+          "Etag": "W/\"783096ace30dd554c83921361c27a8c6\"",
+          "Link": "</assets/desktop-5c829c5dd327ac697c346e9b96bbe0bb9e236d17699073d017aba983bc55c675.css>; rel=preload; as=style; nopush,</assets/core-ee12a24531b5b576ba6d7f9ec439ec2212ee1636eba03fabbfdf04c927e91a04.js>; rel=preload; as=script; nopush,</assets/desktop-cc79c1c79bc6739cecb8d97b1c3b31c1f381cf847a6034eb6a47a7a07f123852.js>; rel=preload; as=script; nopush",
+          "Referrer-Policy": "strict-origin-when-cross-origin",
+          "Set-Cookie": "_launchpad_session=c7pnYjTlq3N%2FarsUYL5U9BQ1utJPWWQainRlPdONdvE9Fdadt5MIL2uuWfI8Ud1pHa%2F64HcenToc6uM1fDoYlGWIKfaGZ54bHxXO8EBk20Jn3ez%2F%2F%2Fi%2FYaO9OwOK0ic7%2FvwC18mpy9seacZ7VCD192JBTgIsJETo3AmI9s6AbJ0AJtJp5q7D4iD%2BnvVwtiFgjIU0BXz2zSOiFfUjM0DN4RwdAJItcCASa4Qu7Nmiw5V15J2zKcqlk%2Ff%2FkZbO9uWt2L77L1ERAqVV12EwaZoLHjQPYhzuWdG%2F9jwwyX2APM9S3QDGyeSQH8AvOzyXwXOaPihrdMMcNrqkDw5haqVFO6QbDNYpsaSHrXhk3j8%3D--tfFCQ%2BJT7%2Bi8yIOe--FQyyHrF%2FSxHkoz%2FNwQ4lbQ%3D%3D; path=/; expires=Mon, 20 Jul 2026 01:21:48 GMT; secure; HttpOnly; SameSite=Lax",
+          "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+          "Vary": "Sec-Fetch-Site, Accept-Encoding",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Permitted-Cross-Domain-Policies": "none",
+          "X-Request-Id": "1d29888f-4ad8-4e6e-90ae-2a0b5d6923f9",
+          "X-Robots-Tag": "noindex",
+          "X-Runtime": "0.009009",
+          "X-Xss-Protection": "0",
+          "cf-cache-status": "BYPASS",
+          "Server": "cloudflare",
+          "CF-RAY": "a16acb76b8837435-MIA"
+        },
+        "error": null
+      }
+    },
+    {
+      "host": "partners.shopify.com",
+      "target": "shopify",
+      "dns": {
+        "host": "partners.shopify.com",
+        "ip": "23.227.39.20",
+        "error": null
+      },
+      "cert": {
+        "host": "partners.shopify.com",
+        "names": [
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com",
+          "partners.shopify.com"
+        ],
+        "count": 164,
+        "error": null
+      },
+      "wayback": {
+        "host": "partners.shopify.com",
+        "available": false,
+        "url": null,
+        "timestamp": null,
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1016)>"
+      },
+      "github": {
+        "host": "partners.shopify.com",
+        "total": 0,
+        "items": [],
+        "error": "HTTP Error 401: Unauthorized"
+      },
+      "headers": {
+        "host": "partners.shopify.com",
+        "status": 200,
+        "headers": {
+          "Date": "Mon, 06 Jul 2026 01:21:53 GMT",
+          "Content-Type": "text/html; charset=utf-8",
+          "Content-Length": "662857",
+          "Connection": "close",
+          "Strict-Transport-Security": "max-age=15552000; includeSubDomains; preload",
+          "X-Content-Type-Options": "nosniff",
+          "Report-To": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=zbjuBKlkFLLlI1%2BL4aPCRSH36f8PcgYcQ3sg6i5SF5I%2BuIkJsW8VNCrMeY4xL3gML%2FMt3pLQ37Zz%2FquRkLRE2VGCwDeAZzKWQzafv3Fhy9f4otazMeR2M11zRuVZTw9HiQ%3D%3D\"}]}",
+          "cf-cache-status": "BYPASS",
+          "Accept-Ranges": "bytes",
+          "Age": "568",
+          "Cache-Control": "max-age=900, stale-while-revalidate=86400",
+          "Last-Modified": "Mon, 06 Jul 2026 01:12:25 GMT",
+          "Server": "cloudflare",
+          "Set-Cookie": "_shopify_essential_=2e8883f9-8cf0-475f-b432-6315b9c211a1; Domain=shopify.com; Path=/; Expires=Tue, 06 Jul 2027 01:21:53 GMT; Secure; SameSite=Lax",
+          "set-cookie": "_shopify_y=2bc9cf6c-a4da-4203-bd43-9238f4bb81fd; Domain=shopify.com; Path=/; Expires=Tue, 06 Jul 2027 01:21:53 GMT; Secure; SameSite=Lax",
+          "Nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "CF-RAY": "a16acb97fd1c983f-MIA",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "error": null
+      }
+    },
+    {
+      "host": "accounts.shopify.com",
+      "target": "shopify",
+      "dns": {
+        "host": "accounts.shopify.com",
+        "ip": "23.227.39.20",
+        "error": null
+      },
+      "cert": {
+        "host": "accounts.shopify.com",
+        "names": [],
+        "count": 0,
+        "error": "The read operation timed out"
+      },
+      "wayback": {
+        "host": "accounts.shopify.com",
+        "available": false,
+        "url": null,
+        "timestamp": null,
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1016)>"
+      },
+      "github": {
+        "host": "accounts.shopify.com",
+        "total": 0,
+        "items": [],
+        "error": "HTTP Error 401: Unauthorized"
+      },
+      "headers": {
+        "host": "accounts.shopify.com",
+        "status": 403,
+        "headers": {
+          "Date": "Mon, 06 Jul 2026 01:22:26 GMT",
+          "Content-Type": "text/html; charset=UTF-8",
+          "Content-Length": "9114",
+          "Connection": "close",
+          "Accept-Ch": "Sec-CH-UA-Bitness, Sec-CH-UA-Arch, Sec-CH-UA-Full-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Platform, Sec-CH-UA, UA-Bitness, UA-Arch, UA-Full-Version, UA-Mobile, UA-Model, UA-Platform-Version, UA-Platform, UA",
+          "Cf-Mitigated": "challenge",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Server": "cloudflare",
+          "Critical-Ch": "Sec-CH-UA-Bitness, Sec-CH-UA-Arch, Sec-CH-UA-Full-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Platform, Sec-CH-UA, UA-Bitness, UA-Arch, UA-Full-Version, UA-Mobile, UA-Model, UA-Platform-Version, UA-Platform, UA",
+          "Cross-Origin-Embedder-Policy": "require-corp",
+          "Cross-Origin-Opener-Policy": "same-origin",
+          "Cross-Origin-Resource-Policy": "same-origin",
+          "Origin-Agent-Cluster": "?1",
+          "Permissions-Policy": "accelerometer=(),camera=(),clipboard-read=(),clipboard-write=(),geolocation=(),gyroscope=(),hid=(),magnetometer=(),microphone=(),payment=(),publickey-credentials-get=(),screen-wake-lock=(),serial=(),sync-xhr=(),usb=(),xr-spatial-tracking=*",
+          "Referrer-Policy": "same-origin",
+          "Server-Timing": "chlray;desc=\"a16acc65ad24498a\"",
+          "X-Content-Type-Options": "nosniff",
+          "Strict-Transport-Security": "max-age=15552000; includeSubDomains; preload",
+          "Report-To": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=NMPwTke8iT8kOc2rK6qVbbKkqp%2B6IzI1cZfhMC7KZ71TmK5%2BB7iGkgMtPQEHii8%2B9hpfD8j6WJK8F59UP8VftewNvv7EeHlfRz%2F%2BaOq4pXKQ6bcuvoBNR3m60aDG8cX56s%2FmP1rA\"}]}",
+          "Nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "CF-RAY": "a16acc65ad24498a-MIA",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "error": "HTTP Error 403: Forbidden"
+      }
+    },
+    {
+      "host": "shop.app",
+      "target": "shopify",
+      "dns": {
+        "host": "shop.app",
+        "ip": "23.227.39.20",
+        "error": null
+      },
+      "cert": {
+        "host": "shop.app",
+        "names": [],
+        "count": 0,
+        "error": "HTTP Error 502: Bad Gateway"
+      },
+      "wayback": {
+        "host": "shop.app",
+        "available": false,
+        "url": null,
+        "timestamp": null,
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1016)>"
+      },
+      "github": {
+        "host": "shop.app",
+        "total": 0,
+        "items": [],
+        "error": "HTTP Error 401: Unauthorized"
+      },
+      "headers": {
+        "host": "shop.app",
+        "status": 403,
+        "headers": {
+          "Date": "Mon, 06 Jul 2026 01:22:29 GMT",
+          "Content-Type": "text/html; charset=UTF-8",
+          "Content-Length": "9251",
+          "Connection": "close",
+          "Accept-Ch": "Sec-CH-UA-Bitness, Sec-CH-UA-Arch, Sec-CH-UA-Full-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Platform, Sec-CH-UA, UA-Bitness, UA-Arch, UA-Full-Version, UA-Mobile, UA-Model, UA-Platform-Version, UA-Platform, UA",
+          "Cf-Mitigated": "challenge",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Server": "cloudflare",
+          "Critical-Ch": "Sec-CH-UA-Bitness, Sec-CH-UA-Arch, Sec-CH-UA-Full-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Platform, Sec-CH-UA, UA-Bitness, UA-Arch, UA-Full-Version, UA-Mobile, UA-Model, UA-Platform-Version, UA-Platform, UA",
+          "Cross-Origin-Embedder-Policy": "require-corp",
+          "Cross-Origin-Opener-Policy": "same-origin",
+          "Cross-Origin-Resource-Policy": "same-origin",
+          "Origin-Agent-Cluster": "?1",
+          "Permissions-Policy": "accelerometer=(),camera=(),clipboard-read=(),clipboard-write=(),geolocation=(),gyroscope=(),hid=(),magnetometer=(),microphone=(),payment=(),publickey-credentials-get=(),screen-wake-lock=(),serial=(),sync-xhr=(),usb=(),xr-spatial-tracking=*",
+          "Referrer-Policy": "same-origin",
+          "Server-Timing": "chlray;desc=\"a16acc75ca1788f6\"",
+          "X-Content-Type-Options": "nosniff",
+          "Strict-Transport-Security": "max-age=15552000; includeSubDomains; preload",
+          "Report-To": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=6dGSlFtd8z4dHmodwr5xYSUOBoW4JEMSM8P4McHb%2FtZh81oUhJE%2BHKKqAQgjzX9MW8cfFTz06JiRhotYsioScjReF0rcEHzW7A4g8jUbhZYxU6a%2FzhcLoMMgZo4fNL78K6tkO7S9\"}]}",
+          "Nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "CF-RAY": "a16acc75ca1788f6-MIA",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "error": "HTTP Error 403: Forbidden"
+      }
+    },
+    {
+      "host": "shopify.plus",
+      "target": "shopify",
+      "dns": {
+        "host": "shopify.plus",
+        "ip": "23.227.39.20",
+        "error": null
+      },
+      "cert": {
+        "host": "shopify.plus",
+        "names": [],
+        "count": 0,
+        "error": "HTTP Error 502: Bad Gateway"
+      },
+      "wayback": {
+        "host": "shopify.plus",
+        "available": false,
+        "url": null,
+        "timestamp": null,
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1016)>"
+      },
+      "github": {
+        "host": "shopify.plus",
+        "total": 0,
+        "items": [],
+        "error": "HTTP Error 401: Unauthorized"
+      },
+      "headers": {
+        "host": "shopify.plus",
+        "status": 200,
+        "headers": {
+          "Date": "Mon, 06 Jul 2026 01:22:32 GMT",
+          "Content-Type": "text/html; charset=utf-8",
+          "Content-Length": "745999",
+          "Connection": "close",
+          "Strict-Transport-Security": "max-age=15552000; includeSubDomains; preload",
+          "X-Content-Type-Options": "nosniff",
+          "Report-To": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=zU1LPQfaV2H%2BMG0DX6%2BC7VOIPFMKKO7%2BCFTUOnDX9%2Fy83McaTt%2Fw%2BD9s%2Fjj%2BtwowVk4w%2FiQEMXxbAhdvyqCPdxDyGoIvj5tUGdpU8%2BhNi2A22lMod%2FvTouvflAOsROp8bA%3D%3D\"}]}",
+          "cf-cache-status": "BYPASS",
+          "Accept-Ranges": "bytes",
+          "Age": "5937",
+          "Cache-Control": "max-age=900, stale-while-revalidate=86400",
+          "Last-Modified": "Sun, 05 Jul 2026 23:43:34 GMT",
+          "Server": "cloudflare",
+          "Set-Cookie": "_shopify_essential_=d84dbfbe-450b-40a8-b7a9-c3bdba2a7ce3; Domain=shopify.com; Path=/; Expires=Tue, 06 Jul 2027 01:22:32 GMT; Secure; SameSite=Lax",
+          "set-cookie": "_shopify_y=26cdf4df-3795-4c33-8658-d830ce057d07; Domain=shopify.com; Path=/; Expires=Tue, 06 Jul 2027 01:22:32 GMT; Secure; SameSite=Lax",
+          "Nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "CF-RAY": "a16acc890d4f6380-MIA",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "error": null
+      }
+    },
+    {
+      "host": "connect.8x8.com",
+      "target": "8x8-bounty",
+      "dns": {
+        "host": "connect.8x8.com",
+        "ip": "13.35.196.92",
+        "error": null
+      },
+      "cert": {
+        "host": "connect.8x8.com",
+        "names": [
+          "connect.8x8.com"
+        ],
+        "count": 1,
+        "error": null
+      },
+      "wayback": {
+        "host": "connect.8x8.com",
+        "available": false,
+        "url": null,
+        "timestamp": null,
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1016)>"
+      },
+      "github": {
+        "host": "connect.8x8.com",
+        "total": 0,
+        "items": [],
+        "error": "HTTP Error 401: Unauthorized"
+      },
+      "headers": {
+        "host": "connect.8x8.com",
+        "status": 200,
+        "headers": {
+          "Content-Type": "text/html",
+          "Content-Length": "10532",
+          "Connection": "close",
+          "Last-Modified": "Tue, 30 Jun 2026 06:17:36 GMT",
+          "x-amz-server-side-encryption": "AES256",
+          "Accept-Ranges": "bytes",
+          "Server": "AmazonS3",
+          "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+          "X-XSS-Protection": "1; mode=block",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "DENY",
+          "Referrer-Policy": "no-referrer-when-downgrade",
+          "Content-Security-Policy": "upgrade-insecure-requests; frame-ancestors 'self' *.force.com",
+          "Feature-Policy": "geolocation 'none'; midi 'none'; notifications 'none'; push 'none'; sync-xhr 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'self'; fullscreen 'self'; payment 'none';",
+          "Permissions-Policy": "fullscreen=(self), geolocation=(), midi=(), notifications=(), push=(), sync-xhr=(), microphone=(), camera=(), magnetometer=(), gyroscope=(), speaker=(self), fullscreen=(self), payment=(), camera=()",
+          "Date": "Sun, 05 Jul 2026 14:39:35 GMT",
+          "ETag": "\"30f5b5523d6dafc3ec45ebb22b4d6f0f\"",
+          "Vary": "Accept-Encoding",
+          "X-Cache": "Error from cloudfront",
+          "Via": "1.1 6bc47c2f400b4423693a3a5b15ec2b36.cloudfront.net (CloudFront)",
+          "X-Amz-Cf-Pop": "TPA52-P3",
+          "X-Amz-Cf-Id": "7GUBgkIyrOlTrAdNZ8ElpcPn9CC22lwS1bAoztQxvwj5Ne0_U7AjsA==",
+          "Age": "38586"
+        },
+        "error": null
+      }
+    },
+    {
+      "host": "platform.8x8pilot.com",
+      "target": "8x8-bounty",
+      "dns": {
+        "host": "platform.8x8pilot.com",
+        "ip": "104.18.33.88",
+        "error": null
+      },
+      "cert": {
+        "host": "platform.8x8pilot.com",
+        "names": [],
+        "count": 0,
+        "error": "The read operation timed out"
+      },
+      "wayback": {
+        "host": "platform.8x8pilot.com",
+        "available": false,
+        "url": null,
+        "timestamp": null,
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1016)>"
+      },
+      "github": {
+        "host": "platform.8x8pilot.com",
+        "total": 0,
+        "items": [],
+        "error": "HTTP Error 401: Unauthorized"
+      },
+      "headers": {
+        "host": "platform.8x8pilot.com",
+        "status": 406,
+        "headers": {
+          "Date": "Mon, 06 Jul 2026 01:23:13 GMT",
+          "Content-Length": "0",
+          "Connection": "close",
+          "CF-Ray": "a16acd898bbd0b08-MIA",
+          "CF-Cache-Status": "DYNAMIC",
+          "Cache-Control": "no-cache, no-store, max-age=0, must-revalidate",
+          "Expires": "0",
+          "Server": "cloudflare",
+          "Vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers, accept-encoding",
+          "Pragma": "no-cache",
+          "Referrer-Policy": "no-referrer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "DENY",
+          "X-RateLimit-Burst-Capacity": "2",
+          "X-RateLimit-Remaining": "1",
+          "X-RateLimit-Replenish-Rate": "1",
+          "X-RateLimit-Requested-Tokens": "1",
+          "X-XSS-Protection": "0"
+        },
+        "error": "HTTP Error 406: Not Acceptable"
+      }
+    },
+    {
+      "host": "www.hackerone.com",
+      "target": "security",
+      "dns": {
+        "host": "www.hackerone.com",
+        "ip": "172.64.151.42",
+        "error": null
+      },
+      "cert": {
+        "host": "www.hackerone.com",
+        "names": [],
+        "count": 0,
+        "error": "HTTP Error 502: Bad Gateway"
+      },
+      "wayback": {
+        "host": "www.hackerone.com",
+        "available": false,
+        "url": null,
+        "timestamp": null,
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1016)>"
+      },
+      "github": {
+        "host": "www.hackerone.com",
+        "total": 0,
+        "items": [],
+        "error": "HTTP Error 401: Unauthorized"
+      },
+      "headers": {
+        "host": "www.hackerone.com",
+        "status": 200,
+        "headers": {
+          "Date": "Mon, 06 Jul 2026 01:23:16 GMT",
+          "Content-Type": "text/html; charset=UTF-8",
+          "Transfer-Encoding": "chunked",
+          "Connection": "close",
+          "CF-RAY": "a16acd9c59f2a4e0-MIA",
+          "Cache-Control": "public, max-age=2678400",
+          "content-language": "en",
+          "content-security-policy": "default-src 'self' https:; connect-src 'self' https: wss://*.visitors.live wss://realtime.luckyorange.com/mqtt wss://in.visitors.live; font-src 'self' https: data:; img-src 'self' https: data: blob:; media-src 'self' blob: https://embed-ssl.wistia.com; object-src 'none'; script-src 'self' 'report-sample' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'report-sample' 'unsafe-inline' https:; worker-src 'self' blob:; base-uri 'self'; frame-ancestors 'self'; upgrade-insecure-requests",
+          "cross-origin-opener-policy": "same-origin-allow-popups",
+          "etag": "W/\"1783298081\"",
+          "expires": "Thu, 06 Aug 2026 01:23:16 GMT",
+          "last-modified": "Mon, 06 Jul 2026 00:34:41 GMT",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "x-content-type-options": "nosniff",
+          "x-drupal-cache": "MISS",
+          "x-drupal-dynamic-cache": "HIT",
+          "x-frame-options": "SAMEORIGIN",
+          "x-pantheon-styx-hostname": "styx-us-a-7ffbcf568d-swzdv",
+          "x-styx-req-id": "7a5c585d-78d2-11f1-9064-d28f0db9bce0",
+          "x-served-by": "cache-chi-kmdw8640036-CHI, cache-pdk-kfty8610022-PDK",
+          "x-cache": "HIT, MISS",
+          "x-cache-hits": "7, 0",
+          "x-timer": "S1783298702.726276,VS0,VE36",
+          "vary": "Accept-Encoding, Cookie, Cookie, Cookie",
+          "via": "1.1 varnish, 1.1 varnish",
+          "Age": "487",
+          "cf-cache-status": "HIT",
+          "Server": "cloudflare"
+        },
+        "error": null
+      }
+    },
+    {
+      "host": "api.hackerone.com",
+      "target": "security",
+      "dns": {
+        "host": "api.hackerone.com",
+        "ip": "104.18.36.214",
+        "error": null
+      },
+      "cert": {
+        "host": "api.hackerone.com",
+        "names": [],
+        "count": 0,
+        "error": "HTTP Error 502: Bad Gateway"
+      },
+      "wayback": {
+        "host": "api.hackerone.com",
+        "available": false,
+        "url": null,
+        "timestamp": null,
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1016)>"
+      },
+      "github": {
+        "host": "api.hackerone.com",
+        "total": 0,
+        "items": [],
+        "error": "HTTP Error 401: Unauthorized"
+      },
+      "headers": {
+        "host": "api.hackerone.com",
+        "status": 200,
+        "headers": {
+          "Date": "Mon, 06 Jul 2026 01:23:19 GMT",
+          "Content-Type": "text/html",
+          "Content-Length": "9126",
+          "Connection": "close",
+          "CF-RAY": "a16acdadae6348d8-MIA",
+          "last-modified": "Fri, 03 Jul 2026 13:24:23 GMT",
+          "etag": "\"6a47b807-23a6\"",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-frame-options": "DENY",
+          "x-permitted-cross-domain-policies": "none",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-download-options": "noopen",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "expect-ct": "enforce, max-age=86400",
+          "content-security-policy": "default-src 'none'; block-all-mixed-content; connect-src 'self' www.google-analytics.com cdn.jsdelivr.net *.algolia.net *.algolianet.com; font-src 'self'; img-src 'self' data:; script-src 'self' 'unsafe-eval' 'unsafe-inline' www.google-analytics.com cdn.jsdelivr.net *.algolia.net *.algolianet.com; style-src 'self' 'unsafe-inline' cdn.jsdelivr.net; form-action 'self';",
+          "Accept-Ranges": "bytes",
+          "cf-cache-status": "DYNAMIC",
+          "Server": "cloudflare"
+        },
+        "error": null
+      }
+    }
+  ]
+}

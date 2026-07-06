@@ -1,0 +1,13 @@
+{
+  "programs": "HTTP 200 | data_count=1",
+  "hacktivity": "HTTP 200 | data_count=1",
+  "my_reports": "HTTP 200 | data_count=0",
+  "balance": "HTTP 200 | data_count=1",
+  "earnings": "HTTP 200 | data_count=0",
+  "payouts": "HTTP 200 | data_count=0",
+  "program_security": "HTTP 200 | data_count=0",
+  "security_structured_scopes": "HTTP 200 | data_count=1",
+  "security_weaknesses": "HTTP 200 | data_count=1",
+  "report_intents": "HTTP 200 | data_count=0",
+  "reports_1": "HTTP 404 | {\"errors\":[{\"status\":404}]}"
+}

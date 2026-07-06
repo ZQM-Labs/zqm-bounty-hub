@@ -1,0 +1,79 @@
+{
+  "bounty_hub": {
+    "version": "1.0.1",
+    "output_root": "C:\\Users\\zqmco\\.hermes\\shared\\skills\\zqm-bounty-hub\\outputs",
+    "manifest_format": "<run_id>_<platform_id>_manifest.json",
+    "evidence_format": "<run_id>_<task_id>_raw.json",
+    "manifest_schema_version": "1.0",
+    "required_manifest_fields": [
+      "run_id", "platform", "result_count", "result_hash", "provider",
+      "device_name", "fallback_used", "timestamp", "status"
+    ],
+    "required_evidence_fields": [
+      "platform", "target_id", "check_type", "status", "result_hash",
+      "timestamp", "requires_auth", "body", "headers"
+    ]
+  },
+  "platform_adapters": {
+    "hackerone": {
+      "platform_id": "hackerone",
+      "base_url": "https://api.hackerone.com",
+      "auth_env": "HACKERONE_API_TOKEN",
+      "auth_token_identifier_env": "HACKERONE_API_TOKEN_IDENTIFIER",
+      "token_identifier_source": "h1_web_ui",
+      "token_identifier_value": "zqm-computing",
+      "required_scope_confirmed": true,
+      "adapter_module": "adapters/hackerone_adapter.py",
+      "integration_module": "scripts/h1_api_client.py",
+      "verified_endpoints": [
+        "/v1/hackers/programs",
+        "/v1/hackers/hacktivity",
+        "/v1/hackers/programs/{handle}",
+        "/v1/hackers/programs/{handle}/structured_scopes",
+        "/v1/hackers/programs/{handle}/weaknesses",
+        "/v1/hackers/programs/{handle}/scope_exclusions",
+        "/v1/hackers/payments/balance",
+        "/v1/hackers/payments/earnings",
+        "/v1/hackers/payouts",
+        "/v1/hackers/me/reports",
+        "/v1/hackers/reports/{id}",
+        "/v1/hackers/report_intents",
+        "/v1/hackers/report_intents/{id}/submit",
+        "/v1/hackers/report_intents/{id}/attachments",
+        "/v1/hackers/reports/{id}/comments"
+      ],
+      "supported_check_types": ["mobile", "web_app", "cloud", "api", "desktop_app"],
+      "required_secrets": ["HACKERONE_API_TOKEN"],
+      "optional_secret_files": ["C:\\Users\\zqmco\\.zqm-auth\\token"],
+      "output_root": "C:\\Users\\zqmco\\.hermes\\shared\\skills\\zqm-bounty-hub\\outputs",
+      "rate_limit": "Respect HackerOne API rate limits; handle 429",
+      "auth_confirmed_at": "2026-07-05",
+      "notes": "Verified with identifier `zqm-computing`. Keep token in Windows user env or protected store; never commit plaintext. Program team hacktivity filter may require program handle query parameter; code-time fallback from global hacktivity is in place."
+    },
+    "bugcrowd": {
+      "platform_id": "bugcrowd",
+      "auth_env": "BUGCROWD_API_KEY",
+      "adapter_module": "adapters/bugcrowd_adapter.py",
+      "targets_file": "targets/bugcrowd_targets.json",
+      "required_scope_confirmed": false,
+      "auth_status": "unverified",
+      "failure_reason": "Official docs domain `developers.bugcrowd.com` failed DNS resolution from this environment; exact auth header/path format not verified.",
+      "supported_check_types": ["web_app", "api", "desktop_app", "mobile", "network"],
+      "rate_limit": "Respect Bugcrowd API rate limits; handle 429",
+      "notes": "Use CrowdMatch-style targeting only if explicitly authorized. Adapter currently emits unsupported_platform until auth is verified."
+    },
+    "intigriti": {
+      "platform_id": "intigriti",
+      "auth_env": "INTIGRITI_API_KEY",
+      "adapter_module": "adapters/intigriti_adapter.py",
+      "targets_file": "targets/intigriti_targets.json",
+      "required_scope_confirmed": false,
+      "auth_status": "unverified",
+      "failure_reason": "`/core/v1/me` returned 404; identity endpoint path unknown. Exact header/path format not verified.",
+      "supported_check_types": ["web_app", "api", "mobile"],
+      "rate_limit": "Respect Intigriti API rate limits; handle 429",
+      "notes": "EU-oriented programs; confirm GDPR/data-handling constraints before testing. Adapter currently emits unsupported_platform until auth is verified."
+    }
+  },
+  "task_expansion_rule": "Each target_id is unique per platform/check combination. Never reuse the same target_id across platforms for parallel runs."
+}

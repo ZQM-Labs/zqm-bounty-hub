@@ -1,0 +1,22 @@
+{
+  "anthropic": {
+    "rank": 1,
+    "error": "HTTP 401 for /v1/hackers/programs/anthropic/structured_scopes: {\"errors\":[{\"status\":401}]}"
+  },
+  "shopify": {
+    "rank": 2,
+    "error": "HTTP 401 for /v1/hackers/programs/shopify/structured_scopes: {\"errors\":[{\"status\":401}]}"
+  },
+  "basecamp": {
+    "rank": 3,
+    "error": "HTTP 401 for /v1/hackers/programs/basecamp/structured_scopes: {\"errors\":[{\"status\":401}]}"
+  },
+  "yelp": {
+    "rank": 4,
+    "error": "HTTP 401 for /v1/hackers/programs/yelp/structured_scopes: {\"errors\":[{\"status\":401}]}"
+  },
+  "matomo": {
+    "rank": 5,
+    "error": "HTTP 401 for /v1/hackers/programs/matomo/structured_scopes: {\"errors\":[{\"status\":401}]}"
+  }
+}
