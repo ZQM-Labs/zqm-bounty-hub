@@ -10,3 +10,5 @@ scripts/outputs/
 # Hermes runtime noise
 *.pyc
 __pycache__/
+
+outputs/stale_working_ranking.json
