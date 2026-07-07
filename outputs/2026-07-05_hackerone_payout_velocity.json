@@ -1,0 +1,122 @@
+{
+  "velocity_metrics": {
+    "earnings_count": 0,
+    "payouts_count": 0,
+    "reports_with_lifecycle": 0,
+    "avg_days_submitted_to_triaged": null,
+    "avg_days_submitted_to_resolved": null,
+    "avg_days_resolved_to_bounty_awarded": null,
+    "avg_days_bounty_awarded_to_paid_out": null,
+    "report_state_distribution": {}
+  },
+  "earnings_sample": [],
+  "payouts_sample": [],
+  "report_lifecycles_sample": [],
+  "program_payout_profiles": {
+    "anthropic": {
+      "scope_count": 15,
+      "recent_hacktivity_bounties": 1,
+      "estimated_bounty_range_usd": [
+        100,
+        1500
+      ],
+      "timeline_days_estimate": "14-45",
+      "evidence": "1 disclosed bounty in global feed"
+    },
+    "shopify": {
+      "scope_count": 30,
+      "recent_hacktivity_bounties": 1,
+      "estimated_bounty_range_usd": [
+        50,
+        5000
+      ],
+      "timeline_days_estimate": "7-60",
+      "evidence": "3 recent hacktivity items, 1 bounty, registered target"
+    },
+    "basecamp": {
+      "scope_count": 19,
+      "recent_hacktivity_bounties": 1,
+      "estimated_bounty_range_usd": [
+        100,
+        1000
+      ],
+      "timeline_days_estimate": "7-30",
+      "evidence": "1 disclosed Medium bounty $287, registered target"
+    },
+    "yelp": {
+      "scope_count": 15,
+      "recent_hacktivity_bounties": 0,
+      "estimated_bounty_range_usd": [
+        100,
+        1000
+      ],
+      "timeline_days_estimate": "14-60",
+      "evidence": "1 recent hacktivity item, no bounty amount seen"
+    },
+    "matomo": {
+      "scope_count": 14,
+      "recent_hacktivity_bounties": 1,
+      "estimated_bounty_range_usd": [
+        100,
+        500
+      ],
+      "timeline_days_estimate": "7-30",
+      "evidence": "1 recent hacktivity item with bounty"
+    },
+    "8x8-bounty": {
+      "scope_count": 133,
+      "recent_hacktivity_bounties": 0,
+      "estimated_bounty_range_usd": [
+        100,
+        500
+      ],
+      "timeline_days_estimate": "14-90",
+      "evidence": "133 assets, no recent hacktivity, registered"
+    },
+    "gitlab": {
+      "scope_count": 44,
+      "recent_hacktivity_bounties": 0,
+      "estimated_bounty_range_usd": [
+        100,
+        2000
+      ],
+      "timeline_days_estimate": "14-60",
+      "evidence": "44 assets, no recent hacktivity, registered"
+    },
+    "valve": {
+      "scope_count": 26,
+      "recent_hacktivity_bounties": 2,
+      "estimated_bounty_range_usd": [
+        100,
+        1000
+      ],
+      "timeline_days_estimate": "7-30",
+      "evidence": "2 recent hacktivity items, both with bounties"
+    },
+    "instacart": {
+      "scope_count": 22,
+      "recent_hacktivity_bounties": 1,
+      "estimated_bounty_range_usd": [
+        100,
+        1500
+      ],
+      "timeline_days_estimate": "7-45",
+      "evidence": "1 recent hacktivity item with bounty"
+    },
+    "airtable": {
+      "scope_count": 18,
+      "recent_hacktivity_bounties": 1,
+      "estimated_bounty_range_usd": [
+        100,
+        1000
+      ],
+      "timeline_days_estimate": "7-45",
+      "evidence": "1 recent hacktivity item with bounty"
+    }
+  },
+  "raw_counts": {
+    "earnings": 0,
+    "payouts": 0,
+    "reports": 0
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "run_id": "20260706011833",
+  "plans": [
+    {
+      "handle": "basecamp",
+      "status": "investigated",
+      "weakness_summary": {
+        "total": 0,
+        "names": [],
+        "weakness_ids": []
+      },
+      "hacktivity_summary": {
+        "total_items": 0,
+        "disclosed_count": 0,
+        "awarded_count": 0,
+        "total_awarded": 0.0,
+        "severity_counts": {},
+        "weakness_counts": {},
+        "sample_titles": []
+      },
+      "generated_at": "2026-07-06T01:18:33.949445+00:00"
+    },
+    {
+      "handle": "shopify",
+      "status": "investigated",
+      "weakness_summary": {
+        "total": 0,
+        "names": [],
+        "weakness_ids": []
+      },
+      "hacktivity_summary": {
+        "total_items": 0,
+        "disclosed_count": 0,
+        "awarded_count": 0,
+        "total_awarded": 0.0,
+        "severity_counts": {},
+        "weakness_counts": {},
+        "sample_titles": []
+      },
+      "generated_at": "2026-07-06T01:18:35.109019+00:00"
+    },
+    {
+      "handle": "8x8-bounty",
+      "status": "investigated",
+      "weakness_summary": {
+        "total": 0,
+        "names": [],
+        "weakness_ids": []
+      },
+      "hacktivity_summary": {
+        "total_items": 0,
+        "disclosed_count": 0,
+        "awarded_count": 0,
+        "total_awarded": 0.0,
+        "severity_counts": {},
+        "weakness_counts": {},
+        "sample_titles": []
+      },
+      "generated_at": "2026-07-06T01:18:36.209443+00:00"
+    },
+    {
+      "handle": "security",
+      "status": "investigated",
+      "weakness_summary": {
+        "total": 0,
+        "names": [],
+        "weakness_ids": []
+      },
+      "hacktivity_summary": {
+        "total_items": 0,
+        "disclosed_count": 0,
+        "awarded_count": 0,
+        "total_awarded": 0.0,
+        "severity_counts": {},
+        "weakness_counts": {},
+        "sample_titles": []
+      },
+      "generated_at": "2026-07-06T01:18:37.363896+00:00"
+    },
+    {
+      "handle": "anthropic",
+      "status": "investigated",
+      "weakness_summary": {
+        "total": 0,
+        "names": [],
+        "weakness_ids": []
+      },
+      "hacktivity_summary": {
+        "total_items": 0,
+        "disclosed_count": 0,
+        "awarded_count": 0,
+        "total_awarded": 0.0,
+        "severity_counts": {},
+        "weakness_counts": {},
+        "sample_titles": []
+      },
+      "generated_at": "2026-07-06T01:18:38.425282+00:00"
+    },
+    {
+      "handle": "cloudflare",
+      "status": "investigated",
+      "weakness_summary": {
+        "total": 0,
+        "names": [],
+        "weakness_ids": []
+      },
+      "hacktivity_summary": {
+        "total_items": 0,
+        "disclosed_count": 0,
+        "awarded_count": 0,
+        "total_awarded": 0.0,
+        "severity_counts": {},
+        "weakness_counts": {},
+        "sample_titles": []
+      },
+      "generated_at": "2026-07-06T01:18:39.661173+00:00"
+    }
+  ]
+}

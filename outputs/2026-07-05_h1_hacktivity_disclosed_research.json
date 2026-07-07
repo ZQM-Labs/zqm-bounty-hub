@@ -1,0 +1,577 @@
+{
+  "generated_at": "2026-07-05T00:00:00Z",
+  "endpoint": "/v1/hackers/hacktivity",
+  "sort": "-latest_disclosable_activity_at",
+  "total_items_fetched": 50,
+  "total_program_events": 50,
+  "overall": {
+    "disclosed": 2,
+    "bounty_events": 11,
+    "bounty_total": 13464
+  },
+  "program_disclosed_counts": {
+    "basecamp": {
+      "total": 1,
+      "disclosed": 1,
+      "bounties": 1,
+      "max_award": 287,
+      "severities": {
+        "Medium": 1
+      },
+      "cwes": {
+        "Improper Access Control - Generic": 1
+      },
+      "actions": {
+        "Activities::ReportBecamePublic": 1
+      }
+    },
+    "shopify": {
+      "total": 3,
+      "disclosed": 1,
+      "bounties": 1,
+      "max_award": 50,
+      "severities": {
+        "None": 1
+      },
+      "cwes": {},
+      "actions": {
+        "Activities::ReportBecamePublic": 1,
+        "Activities::BountyAwarded": 2
+      }
+    },
+    "valve": {
+      "total": 2,
+      "disclosed": 0,
+      "bounties": 2,
+      "max_award": 2500,
+      "severities": {},
+      "cwes": {},
+      "actions": {
+        "Activities::BountyAwarded": 1,
+        "Activities::BugResolved": 1
+      }
+    },
+    "wisdomtree": {
+      "total": 1,
+      "disclosed": 0,
+      "bounties": 1,
+      "max_award": 4000,
+      "severities": {},
+      "cwes": {},
+      "actions": {
+        "Activities::BountyAwarded": 1
+      }
+    },
+    "hostinger": {
+      "total": 4,
+      "disclosed": 0,
+      "bounties": 1,
+      "max_award": 2800,
+      "severities": {},
+      "cwes": {},
+      "actions": {
+        "Activities::BugResolved": 4
+      }
+    },
+    "instacart": {
+      "total": 1,
+      "disclosed": 0,
+      "bounties": 1,
+      "max_award": 2000,
+      "severities": {},
+      "cwes": {},
+      "actions": {
+        "Activities::BugResolved": 1
+      }
+    },
+    "matomo": {
+      "total": 1,
+      "disclosed": 0,
+      "bounties": 1,
+      "max_award": 777,
+      "severities": {},
+      "cwes": {},
+      "actions": {
+        "Activities::BountyAwarded": 1
+      }
+    },
+    "anthropic": {
+      "total": 1,
+      "disclosed": 0,
+      "bounties": 1,
+      "max_award": 100,
+      "severities": {},
+      "cwes": {},
+      "actions": {
+        "Activities::BugResolved": 1
+      }
+    },
+    "airtable": {
+      "total": 1,
+      "disclosed": 0,
+      "bounties": 1,
+      "max_award": 100,
+      "severities": {},
+      "cwes": {},
+      "actions": {
+        "Activities::BountyAwarded": 1
+      }
+    },
+    "stripe": {
+      "total": 1,
+      "disclosed": 0,
+      "bounties": 1,
+      "max_award": 100,
+      "severities": {},
+      "cwes": {},
+      "actions": {
+        "Activities::BountyAwarded": 1
+      }
+    },
+    "automattic": {
+      "total": 1,
+      "disclosed": 0,
+      "bounties": 0,
+      "max_award": 0,
+      "severities": {},
+      "cwes": {},
+      "actions": {
+        "Activities::BugResolved": 1
+      }
+    },
+    "latamairlines": {
+      "total": 1,
+      "disclosed": 0,
+      "bounties": 0,
+      "max_award": 0,
+      "severities": {},
+      "cwes": {},
+      "actions": {
+        "Activities::BugResolved": 1
+      }
+    },
+    "aeromexico_vdp": {
+      "total": 1,
+      "disclosed": 0,
+      "bounties": 0,
+      "max_award": 0,
+      "severities": {},
+      "cwes": {},
+      "actions": {
+        "Activities::BugResolved": 1
+      }
+    },
+    "nextcloud": {
+      "total": 10,
+      "disclosed": 0,
+      "bounties": 0,
+      "max_award": 0,
+      "severities": {},
+      "cwes": {},
+      "actions": {
+        "Activities::BugResolved": 10
+      }
+    },
+    "amazonvrp": {
+      "total": 1,
+      "disclosed": 0,
+      "bounties": 0,
+      "max_award": 0,
+      "severities": {},
+      "cwes": {},
+      "actions": {
+        "Activities::BugResolved": 1
+      }
+    },
+    "yelp": {
+      "total": 1,
+      "disclosed": 0,
+      "bounties": 0,
+      "max_award": 0,
+      "severities": {},
+      "cwes": {},
+      "actions": {
+        "Activities::BugResolved": 1
+      }
+    },
+    "acronis": {
+      "total": 1,
+      "disclosed": 0,
+      "bounties": 0,
+      "max_award": 0,
+      "severities": {},
+      "cwes": {},
+      "actions": {
+        "Activities::BugResolved": 1
+      }
+    },
+    "trendyol": {
+      "total": 1,
+      "disclosed": 0,
+      "bounties": 0,
+      "max_award": 0,
+      "severities": {},
+      "cwes": {},
+      "actions": {
+        "Activities::BugResolved": 1
+      }
+    },
+    "att": {
+      "total": 1,
+      "disclosed": 0,
+      "bounties": 0,
+      "max_award": 0,
+      "severities": {},
+      "cwes": {},
+      "actions": {
+        "Activities::BugResolved": 1
+      }
+    },
+    "malwarebytes": {
+      "total": 1,
+      "disclosed": 0,
+      "bounties": 0,
+      "max_award": 0,
+      "severities": {},
+      "cwes": {},
+      "actions": {
+        "Activities::BugResolved": 1
+      }
+    },
+    "security": {
+      "total": 1,
+      "disclosed": 0,
+      "bounties": 0,
+      "max_award": 0,
+      "severities": {},
+      "cwes": {},
+      "actions": {
+        "Activities::BugResolved": 1
+      }
+    },
+    "adobe": {
+      "total": 1,
+      "disclosed": 0,
+      "bounties": 0,
+      "max_award": 0,
+      "severities": {},
+      "cwes": {},
+      "actions": {
+        "Activities::BugResolved": 1
+      }
+    },
+    "british_airways_vdp": {
+      "total": 1,
+      "disclosed": 0,
+      "bounties": 0,
+      "max_award": 0,
+      "severities": {},
+      "cwes": {},
+      "actions": {
+        "Activities::BugResolved": 1
+      }
+    },
+    "mapbox": {
+      "total": 1,
+      "disclosed": 0,
+      "bounties": 0,
+      "max_award": 0,
+      "severities": {},
+      "cwes": {},
+      "actions": {
+        "Activities::BugResolved": 1
+      }
+    },
+    "vimeo": {
+      "total": 1,
+      "disclosed": 0,
+      "bounties": 0,
+      "max_award": 0,
+      "severities": {},
+      "cwes": {},
+      "actions": {
+        "Activities::BugResolved": 1
+      }
+    },
+    "henkel_vdp": {
+      "total": 2,
+      "disclosed": 0,
+      "bounties": 0,
+      "max_award": 0,
+      "severities": {},
+      "cwes": {},
+      "actions": {
+        "Activities::BugResolved": 2
+      }
+    },
+    "coursera": {
+      "total": 1,
+      "disclosed": 0,
+      "bounties": 0,
+      "max_award": 0,
+      "severities": {},
+      "cwes": {},
+      "actions": {
+        "Activities::BugResolved": 1
+      }
+    },
+    "twilio": {
+      "total": 1,
+      "disclosed": 0,
+      "bounties": 0,
+      "max_award": 0,
+      "severities": {},
+      "cwes": {},
+      "actions": {
+        "Activities::BugResolved": 1
+      }
+    },
+    "mars": {
+      "total": 1,
+      "disclosed": 0,
+      "bounties": 0,
+      "max_award": 0,
+      "severities": {},
+      "cwes": {},
+      "actions": {
+        "Activities::BugResolved": 1
+      }
+    },
+    "abb": {
+      "total": 1,
+      "disclosed": 0,
+      "bounties": 0,
+      "max_award": 0,
+      "severities": {},
+      "cwes": {},
+      "actions": {
+        "Activities::BugResolved": 1
+      }
+    },
+    "mtn_group": {
+      "total": 4,
+      "disclosed": 0,
+      "bounties": 0,
+      "max_award": 0,
+      "severities": {},
+      "cwes": {},
+      "actions": {
+        "Activities::BugResolved": 4
+      }
+    }
+  },
+  "top20": [
+    [
+      "basecamp",
+      {
+        "total": 1,
+        "disclosed": 1,
+        "bounties": 1,
+        "max_award": 287
+      }
+    ],
+    [
+      "shopify",
+      {
+        "total": 3,
+        "disclosed": 1,
+        "bounties": 1,
+        "max_award": 50
+      }
+    ],
+    [
+      "valve",
+      {
+        "total": 2,
+        "disclosed": 0,
+        "bounties": 2,
+        "max_award": 2500
+      }
+    ],
+    [
+      "wisdomtree",
+      {
+        "total": 1,
+        "disclosed": 0,
+        "bounties": 1,
+        "max_award": 4000
+      }
+    ],
+    [
+      "hostinger",
+      {
+        "total": 4,
+        "disclosed": 0,
+        "bounties": 1,
+        "max_award": 2800
+      }
+    ],
+    [
+      "instacart",
+      {
+        "total": 1,
+        "disclosed": 0,
+        "bounties": 1,
+        "max_award": 2000
+      }
+    ],
+    [
+      "matomo",
+      {
+        "total": 1,
+        "disclosed": 0,
+        "bounties": 1,
+        "max_award": 777
+      }
+    ],
+    [
+      "anthropic",
+      {
+        "total": 1,
+        "disclosed": 0,
+        "bounties": 1,
+        "max_award": 100
+      }
+    ],
+    [
+      "airtable",
+      {
+        "total": 1,
+        "disclosed": 0,
+        "bounties": 1,
+        "max_award": 100
+      }
+    ],
+    [
+      "stripe",
+      {
+        "total": 1,
+        "disclosed": 0,
+        "bounties": 1,
+        "max_award": 100
+      }
+    ],
+    [
+      "automattic",
+      {
+        "total": 1,
+        "disclosed": 0,
+        "bounties": 0,
+        "max_award": 0
+      }
+    ],
+    [
+      "latamairlines",
+      {
+        "total": 1,
+        "disclosed": 0,
+        "bounties": 0,
+        "max_award": 0
+      }
+    ],
+    [
+      "aeromexico_vdp",
+      {
+        "total": 1,
+        "disclosed": 0,
+        "bounties": 0,
+        "max_award": 0
+      }
+    ],
+    [
+      "nextcloud",
+      {
+        "total": 10,
+        "disclosed": 0,
+        "bounties": 0,
+        "max_award": 0
+      }
+    ],
+    [
+      "amazonvrp",
+      {
+        "total": 1,
+        "disclosed": 0,
+        "bounties": 0,
+        "max_award": 0
+      }
+    ],
+    [
+      "yelp",
+      {
+        "total": 1,
+        "disclosed": 0,
+        "bounties": 0,
+        "max_award": 0
+      }
+    ],
+    [
+      "acronis",
+      {
+        "total": 1,
+        "disclosed": 0,
+        "bounties": 0,
+        "max_award": 0
+      }
+    ],
+    [
+      "trendyol",
+      {
+        "total": 1,
+        "disclosed": 0,
+        "bounties": 0,
+        "max_award": 0
+      }
+    ],
+    [
+      "att",
+      {
+        "total": 1,
+        "disclosed": 0,
+        "bounties": 0,
+        "max_award": 0
+      }
+    ],
+    [
+      "malwarebytes",
+      {
+        "total": 1,
+        "disclosed": 0,
+        "bounties": 0,
+        "max_award": 0
+      }
+    ]
+  ],
+  "disclosed_samples": [
+    {
+      "id": 3764217,
+      "title": "Any installed app can force immediate logout and persistent DOS of authenticated Basecamp sessions via unprotected exported StartActivity",
+      "disclosed": true,
+      "substate": "resolved",
+      "severity_rating": "Medium",
+      "cwe": "Improper Access Control - Generic",
+      "total_awarded_amount": 287,
+      "votes": 12,
+      "latest_disclosable_action": "Activities::ReportBecamePublic",
+      "latest_disclosable_activity_at": "2026-07-04T11:05:36.635Z",
+      "submitted_at": "2026-05-27T08:46:53.237Z",
+      "program_handle": "basecamp",
+      "program_name": "Basecamp"
+    },
+    {
+      "id": 3628961,
+      "title": "admin.shopify.com: Shopify Flow continues sending internal emails to a configured recipient after the staff author is removed",
+      "disclosed": true,
+      "substate": "informative",
+      "severity_rating": "None",
+      "cwe": null,
+      "total_awarded_amount": null,
+      "votes": 13,
+      "latest_disclosable_action": "Activities::ReportBecamePublic",
+      "latest_disclosable_activity_at": "2026-07-03T18:50:07.615Z",
+      "submitted_at": "2026-03-26T10:49:30.070Z",
+      "program_handle": "shopify",
+      "program_name": "Shopify"
+    }
+  ]
+}

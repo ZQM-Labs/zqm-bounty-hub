@@ -1,0 +1,262 @@
+{
+  "normalized_at": "2026-07-05T23:55:00Z",
+  "platform": "hackerone",
+  "account": "zqm-computing",
+  "total_programs_visible": 593,
+  "bounty_programs_visible": 291,
+  "open_bounty_programs_visible": 227,
+  "paused_bounty_programs_visible": 64,
+  "auth": {
+    "identifier": "zqm-computing",
+    "verified_endpoints": [
+      "/v1/hackers/programs",
+      "/v1/hackers/hacktivity",
+      "/v1/hackers/me/reports",
+      "/v1/hackers/payments/earnings",
+      "/v1/hackers/payments/payouts",
+      "/v1/hackers/report_intents"
+    ],
+    "partial_access": [
+      "/v1/hackers/programs/{handle}",
+      "/v1/hackers/programs/{handle}/structured_scopes"
+    ],
+    "fails": [
+      "/v1/hackers/programs/{handle}/structured_scopes for inaccessible handles",
+      "/v1/hackers/report_intents may require program-specific scope"
+    ]
+  },
+  "missing_from_visible_catalog": [
+    "amazon-web-services",
+    "atlassian"
+  ],
+  "registered_targets": [
+    {
+      "slug": "shopify",
+      "target_id": "h1_shopify",
+      "score": 60.0,
+      "scope_count": 30,
+      "recent_hacktivity_count": 3,
+      "recent_bounty_count": 1,
+      "hacktivity_items": [
+        {
+          "disclosed_at": "2026-07-03T18:50:06.378Z",
+          "title": "admin.shopify.com: Shopify Flow continues sending internal emails to a configured recipient after the staff author is removed",
+          "severity_rating": "None",
+          "substate": "informative",
+          "total_awarded_amount": null
+        },
+        {
+          "disclosed_at": null,
+          "title": null,
+          "severity_rating": null,
+          "substate": null,
+          "total_awarded_amount": 50
+        }
+      ],
+      "estimated_bounty_range_usd": [50, 5000],
+      "estimated_timeline_days": "7-60",
+      "sample_scope_assets": [
+        {"asset_identifier": "your-store.myshopify.com", "max_severity": "critical"},
+        {"asset_identifier": "partners.shopify.com", "max_severity": "critical"},
+        {"asset_identifier": "accounts.shopify.com", "max_severity": "critical"},
+        {"asset_identifier": "*.shopify.io", "max_severity": "medium"},
+        {"asset_identifier": "*.shopify.com", "max_severity": "medium"}
+      ],
+      "weakness_count": 125,
+      "bounty_evidence": [{"date": "2026-07-05", "amount_usd": 50, "source": "Hacktivity"}]
+    },
+    {
+      "slug": "basecamp",
+      "target_id": "h1_basecamp_android",
+      "score": 55.0,
+      "scope_count": 19,
+      "recent_hacktivity_count": 1,
+      "recent_bounty_count": 1,
+      "hacktivity_items": [
+        {
+          "disclosed_at": "2026-07-04T11:05:36.164Z",
+          "title": "Any installed app can force immediate logout and persistent DOS of authenticated Basecamp sessions via unprotected exported StartActivity",
+          "severity_rating": "Medium",
+          "substate": "resolved",
+          "total_awarded_amount": 287,
+          "cwe": "Improper Access Control - Generic",
+          "cve_ids": []
+        }
+      ],
+      "estimated_bounty_range_usd": [100, 1000],
+      "estimated_timeline_days": "7-30",
+      "sample_scope_assets": [
+        {"asset_identifier": "*.basecamphq.com", "max_severity": "none"},
+        {"asset_identifier": "basecamp.com", "max_severity": "none"},
+        {"asset_identifier": "app.basecamp.com", "max_severity": "critical"},
+        {"asset_identifier": "launchpad.37signals.com", "max_severity": "critical"},
+        {"asset_identifier": "*.hey.com", "max_severity": "critical"}
+      ],
+      "weakness_count": 123,
+      "bounty_evidence": [{"date": "2026-07-05", "amount_usd": 287, "source": "Hacktivity"}]
+    },
+    {
+      "slug": "8x8-bounty",
+      "target_id": "h1_8x8_jitsi",
+      "score": 45.0,
+      "scope_count": 133,
+      "recent_hacktivity_count": 0,
+      "recent_bounty_count": 0,
+      "hacktivity_items": [],
+      "estimated_bounty_range_usd": [100, 500],
+      "estimated_timeline_days": "14-90",
+      "sample_scope_assets": [],
+      "weakness_count": 0,
+      "bounty_evidence": [{"date": "2026-07-05", "amount_usd": 100, "source": "Hacktivity"}]
+    },
+    {
+      "slug": "gitlab",
+      "target_id": "h1_gitlab",
+      "score": 40.0,
+      "scope_count": 44,
+      "recent_hacktivity_count": 0,
+      "recent_bounty_count": 0,
+      "hacktivity_items": [],
+      "estimated_bounty_range_usd": [100, 2000],
+      "estimated_timeline_days": "14-60",
+      "sample_scope_assets": [],
+      "weakness_count": 0,
+      "bounty_evidence": []
+    }
+  ],
+  "top_unregistered_targets": [
+    {
+      "slug": "anthropic",
+      "score": 70.0,
+      "scope_count": 15,
+      "recent_hacktivity_count": 1,
+      "recent_bounty_count": 1,
+      "hacktivity_items": [
+        {
+          "disclosed_at": null,
+          "title": null,
+          "severity_rating": null,
+          "substate": null,
+          "total_awarded_amount": 100,
+          "cwe": null,
+          "cve_ids": null
+        }
+      ],
+      "estimated_bounty_range_usd": [100, 1500],
+      "estimated_timeline_days": "14-45",
+      "sample_scope_assets": [
+        {"asset_identifier": "claude.ai", "max_severity": "critical"},
+        {"asset_identifier": "API & SDKs", "asset_type": "AI_MODEL", "max_severity": "critical"},
+        {"asset_identifier": "console.anthropic.com", "max_severity": "critical"},
+        {"asset_identifier": "api.anthropic.com", "max_severity": "critical"},
+        {"asset_identifier": "docs.anthropic.com", "max_severity": "critical"}
+      ],
+      "weakness_count": 1608,
+      "bounty_evidence": [{"date": "2026-07-05", "amount_usd": 100, "source": "Hacktivity"}]
+    },
+    {
+      "slug": "yelp",
+      "score": 50.0,
+      "scope_count": 15,
+      "recent_hacktivity_count": 1,
+      "recent_bounty_count": 0,
+      "hacktivity_items": [
+        {
+          "disclosed_at": null,
+          "title": null,
+          "severity_rating": null,
+          "substate": null,
+          "total_awarded_amount": null,
+          "cwe": null,
+          "cve_ids": null
+        }
+      ],
+      "estimated_bounty_range_usd": [100, 1000],
+      "estimated_timeline_days": "14-60",
+      "sample_scope_assets": [
+        {"asset_identifier": "*.yelp.com", "max_severity": "critical"},
+        {"asset_identifier": "284910350", "asset_type": "APPLE_STORE_APP_ID", "max_severity": "critical"},
+        {"asset_identifier": "936983378", "asset_type": "APPLE_STORE_APP_ID", "max_severity": "critical"},
+        {"asset_identifier": "com.yelp.android.biz", "asset_type": "GOOGLE_PLAY_APP_ID", "max_severity": "critical"},
+        {"asset_identifier": "com.yelp.android", "asset_type": "GOOGLE_PLAY_APP_ID", "max_severity": "critical"}
+      ],
+      "weakness_count": 122,
+      "bounty_evidence": []
+    },
+    {
+      "slug": "valve",
+      "score": 45.0,
+      "scope_count": 26,
+      "recent_hacktivity_count": 2,
+      "recent_bounty_count": 2,
+      "hacktivity_items": [],
+      "estimated_bounty_range_usd": [100, 1000],
+      "estimated_timeline_days": "7-30",
+      "sample_scope_assets": [],
+      "weakness_count": 0,
+      "bounty_evidence": [{"date": "2026-07-05", "amount_usd": null, "source": "Hacktivity"}]
+    },
+    {
+      "slug": "instacart",
+      "score": 45.0,
+      "scope_count": 22,
+      "recent_hacktivity_count": 1,
+      "recent_bounty_count": 1,
+      "hacktivity_items": [],
+      "estimated_bounty_range_usd": [100, 1500],
+      "estimated_timeline_days": "7-45",
+      "sample_scope_assets": [],
+      "weakness_count": 0,
+      "bounty_evidence": [{"date": "2026-07-05", "amount_usd": null, "source": "Hacktivity"}]
+    },
+    {
+      "slug": "airtable",
+      "score": 45.0,
+      "scope_count": 18,
+      "recent_hacktivity_count": 1,
+      "recent_bounty_count": 1,
+      "hacktivity_items": [],
+      "estimated_bounty_range_usd": [100, 1000],
+      "estimated_timeline_days": "7-45",
+      "sample_scope_assets": [],
+      "weakness_count": 0,
+      "bounty_evidence": [{"date": "2026-07-05", "amount_usd": null, "source": "Hacktivity"}]
+    },
+    {
+      "slug": "matomo",
+      "score": 50.0,
+      "scope_count": 14,
+      "recent_hacktivity_count": 1,
+      "recent_bounty_count": 1,
+      "hacktivity_items": [],
+      "estimated_bounty_range_usd": [100, 500],
+      "estimated_timeline_days": "7-30",
+      "sample_scope_assets": [],
+      "weakness_count": 0,
+      "bounty_evidence": [{"date": "2026-07-05", "amount_usd": null, "source": "Hacktivity"}]
+    }
+  ],
+  "payout_velocity": {
+    "personal_earnings_count": 0,
+    "personal_payouts_count": 0,
+    "personal_reports_with_lifecycle": 0,
+    "note": "No personal payout history available for zqm-computing. Estimates are program-level based on public hacktivity and scope density."
+  },
+  "normalization": {
+    "source_artifacts": [
+      "2026-07-05_hackerone_final_ranking.json",
+      "2026-07-05_top10_deepdive.json",
+      "2026-07-05_hackerone_intelligence_summary.json",
+      "2026-07-05_endpoint_map.json",
+      "2026-07-05_hackerone_payout_velocity.json",
+      "targets/hackerone_targets.json"
+    ],
+    "rules_applied": [
+      "scope_count from confirmed accessible structured_scopes",
+      "hacktivity counts from global /v1/hackers/hacktivity feed",
+      "bounty estimates from public disclosure signals only",
+      "personal payout velocity excluded because API returned 0 records",
+      "amazon-web-services and atlassian excluded from actionable ranking because missing from visible catalog"
+    ]
+  }
+}

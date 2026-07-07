@@ -1,0 +1,133 @@
+{
+  "review_type": "full_scope_gym_review",
+  "platform": "hackerone",
+  "reviewed_at": "2026-07-05",
+  "systems": {
+    "auth": {
+      "status": "verified_working",
+      "components": [
+        "Windows user env var HACKERONE_API_TOKEN via winreg",
+        "HTTP Basic auth with identifier zqm-computing",
+        "h1_api_client.py registry-backed token loader"
+      ],
+      "verified_endpoints": [
+        "/v1/hackers/programs",
+        "/v1/hackers/hacktivity",
+        "/v1/hackers/me/reports",
+        "/v1/hackers/payments/balance",
+        "/v1/hackers/payments/earnings",
+        "/v1/hackers/payments/payouts",
+        "/v1/hackers/report_intents"
+      ],
+      "partial_access": [
+        "/v1/hackers/programs/{handle} for some handles",
+        "/v1/hackers/programs/{handle}/structured_scopes for some handles"
+      ],
+      "fails": [
+        "/v1/hackers/programs/{handle}/structured_scopes for inaccessible handles returns 401",
+        "/v1/hackers/reports returns 401",
+        "/v1/hackers/reports/{id}/comments returns 401",
+        "/me/programs returns 404 HTML",
+        "/programs/{handle} returns 404 HTML",
+        "/hackers/earnings returns 404 HTML"
+      ]
+    },
+    "ranking": {
+      "status": "verified",
+      "artifact": "2026-07-05_hackerone_final_ranking.json",
+      "inputs": [
+        "593-program catalog from /v1/hackers/programs",
+        "global hacktivity from /v1/hackers/hacktivity",
+        "structured_scopes counts for accessible handles",
+        "registered target placement from targets/hackerone_targets.json"
+      ],
+      "outputs": [
+        "14 ranked targets with score, offers_bounties, submission_state, hacktivity flag",
+        "registered target placement annotated",
+        "top unregistered high-signal targets identified"
+      ]
+    },
+    "deep_dive": {
+      "status": "verified_partial",
+      "artifact": "2026-07-05_top10_deepdive.json",
+      "inputs": [
+        "structured_scopes via /v1/hackers/programs/{handle}/structured_scopes",
+        "weaknesses via /v1/hackers/programs/{handle}/weaknesses",
+        "scope_exclusions via /v1/hackers/programs/{handle}/scope_exclusions",
+        "global hacktivity filtered by program handle"
+      ],
+      "outputs": [
+        "per-target scope counts: 8x8-bounty=133, gitlab=44, valve=26, instacart=22, shopify=30, airtable=18, basecamp=19, anthropic=15, yelp=15, matomo=14",
+        "per-target recent hacktivity counts and bounty events",
+        "sample scope assets with max_severity",
+        "weakness counts where accessible"
+      ],
+      "gaps": [
+        "program_record metadata often null in deep-dive output",
+        "hacktivity_items arrays often empty despite count>0 due to global feed parsing",
+        "some program records unavailable via /v1/hackers/programs/{handle} in current auth context"
+      ]
+    },
+    "payout_velocity": {
+      "status": "verified_zero_personal_data",
+      "artifact": "2026-07-05_hackerone_payout_velocity.json",
+      "inputs": [
+        "/v1/hackers/payments/earnings",
+        "/v1/hackers/payments/payouts",
+        "/v1/hackers/me/reports"
+      ],
+      "outputs": [
+        "personal_earnings_count=0",
+        "personal_payouts_count=0",
+        "personal_reports_with_lifecycle=0",
+        "program-level payout estimates derived from public hacktivity signals"
+      ],
+      "limitation": "No personal payout history exists for zqm-computing; all payout estimates are program-level heuristics"
+    },
+    "normalization": {
+      "status": "verified_valid",
+      "artifact": "2026-07-05_hackerone_normalized.json",
+      "inputs": [
+        "final_ranking.json",
+        "top10_deepdive.json",
+        "intelligence_summary.json",
+        "endpoint_map.json",
+        "payout_velocity.json",
+        "targets/hackerone_targets.json"
+      ],
+      "outputs": [
+        "single normalized JSON with registered_targets, top_unregistered_targets, payout_velocity, auth map, normalization rules",
+        "validated with python json.load"
+      ]
+    }
+  },
+  "success_probability_signals": {
+    "high_signal_registered": [
+      "shopify: score=60, scope=30, recent_hacktivity=3, bounties=1, estimated_timeline=7-60d, estimated_bounty=$50-$5000",
+      "basecamp: score=55, scope=19, recent_hacktivity=1, bounties=1, estimated_timeline=7-30d, estimated_bounty=$100-$1000",
+      "8x8-bounty: score=45, scope=133, recent_hacktivity=0, bounties=0, estimated_timeline=14-90d, estimated_bounty=$100-$500",
+      "gitlab: score=40, scope=44, recent_hacktivity=0, bounties=0, estimated_timeline=14-60d, estimated_bounty=$100-$2000"
+    ],
+    "high_signal_unregistered": [
+      "anthropic: score=70, scope=15, recent_hacktivity=1, bounties=1, estimated_timeline=14-45d, estimated_bounty=$100-$1500",
+      "yelp: score=50, scope=15, recent_hacktivity=1, bounties=0, estimated_timeline=14-60d, estimated_bounty=$100-$1000",
+      "valve: score=45, scope=26, recent_hacktivity=2, bounties=2, estimated_timeline=7-30d, estimated_bounty=$100-$1000",
+      "instacart: score=45, scope=22, recent_hacktivity=1, bounties=1, estimated_timeline=7-45d, estimated_bounty=$100-$1500",
+      "airtable: score=45, scope=18, recent_hacktivity=1, bounties=1, estimated_timeline=7-45d, estimated_bounty=$100-$1000",
+      "matomo: score=50, scope=14, recent_hacktivity=1, bounties=1, estimated_timeline=7-30d, estimated_bounty=$100-$500"
+    ]
+  },
+  "payment_estimates": {
+    "note": "Program-level estimates only; no personal payout history",
+    "best_short_timeline": ["shopify", "basecamp", "valve", "instacart", "airtable"],
+    "best_high_ceiling": ["shopify", "gitlab", "anthropic", "instacart"],
+    "lowest_confidence": ["8x8-bounty", "gitlab"]
+  },
+  "recommendations": [
+    "Use canonical /v1/... endpoints; avoid unverified shorthand paths",
+    "Focus recon on shopify and basecamp for fastest probable payout",
+    "Use global hacktivity plus accessible structured_scopes for signal; team-filtered queries are unreliable",
+    "Do not chase amazon-web-services or atlassian until API visibility is confirmed",
+    "Monitor /v1/hackers/payments/earnings and /payouts for personal payout history as reports mature"
+  ]
+}

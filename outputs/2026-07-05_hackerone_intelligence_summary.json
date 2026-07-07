@@ -1,0 +1,42 @@
+{
+  "total_programs": 593,
+  "bounty_programs": 291,
+  "open_bounty_programs": 227,
+  "paused_bounty_programs": 64,
+  "hacktivity_active_programs": 13,
+  "registered_targets": [
+    "shopify",
+    "basecamp",
+    "8x8-bounty",
+    "gitlab"
+  ],
+  "registered_count": 4,
+  "top10_unregistered_high_signal": [
+    "anthropic",
+    "yelp",
+    "matomo",
+    "amazonvrp",
+    "airtable",
+    "valve",
+    "instacart",
+    "wisdomtree"
+  ],
+  "score_distribution": {
+    "0-9": 77,
+    "10-19": 233,
+    "20-29": 144,
+    "30-39": 112,
+    "40-49": 9,
+    "50-59": 16,
+    "60-69": 1,
+    "70-79": 1
+  },
+  "insights": [
+    "Active open bounty programs: 227",
+    "Paused programs to deprioritize: 64",
+    "Registered targets in top ranks: shopify, basecamp, 8x8-bounty, gitlab",
+    "Highest-signal unregistered programs: anthropic, yelp, matomo, airtable, valve, instacart",
+    "amazon-web-services and atlassian are not in the visible catalog for this account",
+    "Team-filtered hacktivity is unreliable; use global hacktivity plus per-program structured_scopes for signal"
+  ]
+}

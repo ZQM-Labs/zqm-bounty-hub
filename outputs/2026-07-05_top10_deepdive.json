@@ -1,0 +1,1236 @@
+{
+  "anthropic": {
+    "rank": 1,
+    "registered": false,
+    "program_record": {
+      "name": null,
+      "state": null,
+      "submission_state": null,
+      "offers_bounties": null,
+      "open_scope": null,
+      "triage_active": null,
+      "started_accepting_at": null,
+      "policy_excerpt": ""
+    },
+    "scope_exclusions": {
+      "count": 0,
+      "sample": []
+    },
+    "weaknesses": {
+      "count": 1608,
+      "sample": [
+        "Absolute Path Traversal",
+        "Absolute Path Traversal",
+        "Acceptance of Extraneous Untrusted Data With Trusted Data",
+        "Access Control Check Implemented After Asset is Accessed",
+        "Accessing Functionality Not Properly Constrained by ACLs",
+        "Accessing/Intercepting/Modifying HTTP Cookies",
+        "Access of Memory Location After End of Buffer",
+        "Access of Memory Location Before Start of Buffer",
+        "Access of Uninitialized Pointer",
+        "Access to Critical Private Variable via Public Method"
+      ]
+    },
+    "structured_scopes": {
+      "count": 15,
+      "sample": [
+        {
+          "asset_identifier": "claude.ai",
+          "asset_type": "URL",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "API & SDKs",
+          "asset_type": "AI_MODEL",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "Infrastructure & Internal Apps/Services",
+          "asset_type": "OTHER",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "Official Clients",
+          "asset_type": "OTHER",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "https://github.com/modelcontextprotocol",
+          "asset_type": "SOURCE_CODE",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "Claude Code",
+          "asset_type": "OTHER",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "console.anthropic.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "api.anthropic.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "Leaked Employee API Keys",
+          "asset_type": "OTHER",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "docs.anthropic.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        }
+      ]
+    },
+    "recent_hacktivity_count": 1,
+    "recent_hacktivity_bounty_count": 1,
+    "recent_hacktivity_items": [
+      {
+        "title": null,
+        "disclosed_at": null,
+        "severity_rating": null,
+        "substate": null,
+        "total_awarded_amount": 100,
+        "cwe": null,
+        "cve_ids": null
+      }
+    ],
+    "errors": []
+  },
+  "shopify": {
+    "rank": 2,
+    "registered": true,
+    "program_record": {
+      "name": null,
+      "state": null,
+      "submission_state": null,
+      "offers_bounties": null,
+      "open_scope": null,
+      "triage_active": null,
+      "started_accepting_at": null,
+      "policy_excerpt": ""
+    },
+    "scope_exclusions": {
+      "count": 0,
+      "sample": []
+    },
+    "weaknesses": {
+      "count": 125,
+      "sample": [
+        "Array Index Underflow",
+        "ASI01: Agent Goal Hijack",
+        "ASI02: Tool Misuse and Exploitation",
+        "ASI03: Identity and Privilege Abuse",
+        "ASI04: Agentic Supply Chain Vulnerabilities",
+        "ASI05: Unexpected Code Execution (RCE)",
+        "ASI06: Memory & Context Poisoning",
+        "ASI07: Insecure Inter-Agent Communication",
+        "ASI08: Cascading Failures",
+        "ASI09: Human-Agent Trust Exploitation"
+      ]
+    },
+    "structured_scopes": {
+      "count": 30,
+      "sample": [
+        {
+          "asset_identifier": "your-store.myshopify.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "partners.shopify.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "accounts.shopify.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "investors.shopify.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "*.email.shopify.com",
+          "asset_type": "WILDCARD",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "Shopify Third Party Apps",
+          "asset_type": "OTHER",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": true,
+          "max_severity": "medium"
+        },
+        {
+          "asset_identifier": "Shopify Third Party Store",
+          "asset_type": "OTHER",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": true,
+          "max_severity": "medium"
+        },
+        {
+          "asset_identifier": "*.shopify.io",
+          "asset_type": "WILDCARD",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "medium"
+        },
+        {
+          "asset_identifier": "*.shopify.com",
+          "asset_type": "WILDCARD",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "medium"
+        },
+        {
+          "asset_identifier": "Other",
+          "asset_type": "OTHER",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "max_severity": "none"
+        }
+      ]
+    },
+    "recent_hacktivity_count": 3,
+    "recent_hacktivity_bounty_count": 1,
+    "recent_hacktivity_items": [
+      {
+        "title": "admin.shopify.com: Shopify Flow continues sending internal emails to a configured recipient after the staff author is removed",
+        "disclosed_at": "2026-07-03T18:50:06.378Z",
+        "severity_rating": "None",
+        "substate": "informative",
+        "total_awarded_amount": null,
+        "cwe": null,
+        "cve_ids": []
+      },
+      {
+        "title": null,
+        "disclosed_at": null,
+        "severity_rating": null,
+        "substate": null,
+        "total_awarded_amount": null,
+        "cwe": null,
+        "cve_ids": null
+      },
+      {
+        "title": null,
+        "disclosed_at": null,
+        "severity_rating": null,
+        "substate": null,
+        "total_awarded_amount": 50,
+        "cwe": null,
+        "cve_ids": null
+      }
+    ],
+    "errors": []
+  },
+  "basecamp": {
+    "rank": 3,
+    "registered": true,
+    "program_record": {
+      "name": null,
+      "state": null,
+      "submission_state": null,
+      "offers_bounties": null,
+      "open_scope": null,
+      "triage_active": null,
+      "started_accepting_at": null,
+      "policy_excerpt": ""
+    },
+    "scope_exclusions": {
+      "count": 0,
+      "sample": []
+    },
+    "weaknesses": {
+      "count": 123,
+      "sample": [
+        "Array Index Underflow",
+        "ASI01: Agent Goal Hijack",
+        "ASI02: Tool Misuse and Exploitation",
+        "ASI03: Identity and Privilege Abuse",
+        "ASI04: Agentic Supply Chain Vulnerabilities",
+        "ASI05: Unexpected Code Execution (RCE)",
+        "ASI06: Memory & Context Poisoning",
+        "ASI07: Insecure Inter-Agent Communication",
+        "ASI08: Cascading Failures",
+        "ASI09: Human-Agent Trust Exploitation"
+      ]
+    },
+    "structured_scopes": {
+      "count": 19,
+      "sample": [
+        {
+          "asset_identifier": "*.basecamphq.com",
+          "asset_type": "WILDCARD",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "basecamp.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "app.basecamp.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "launchpad.37signals.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "basecamp-setup.exe",
+          "asset_type": "DOWNLOADABLE_EXECUTABLES",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "Basecamp.app",
+          "asset_type": "DOWNLOADABLE_EXECUTABLES",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "com.basecamp.bc3-ios",
+          "asset_type": "APPLE_STORE_APP_ID",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "com.basecamp.bc3",
+          "asset_type": "GOOGLE_PLAY_APP_ID",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "*.highrisehq.com",
+          "asset_type": "WILDCARD",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "*.hey.com",
+          "asset_type": "WILDCARD",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        }
+      ]
+    },
+    "recent_hacktivity_count": 1,
+    "recent_hacktivity_bounty_count": 1,
+    "recent_hacktivity_items": [
+      {
+        "title": "Any installed app can force immediate logout and persistent DOS of authenticated Basecamp sessions via unprotected exported StartActivity",
+        "disclosed_at": "2026-07-04T11:05:36.164Z",
+        "severity_rating": "Medium",
+        "substate": "resolved",
+        "total_awarded_amount": 287,
+        "cwe": "Improper Access Control - Generic",
+        "cve_ids": []
+      }
+    ],
+    "errors": []
+  },
+  "yelp": {
+    "rank": 4,
+    "registered": false,
+    "program_record": {
+      "name": null,
+      "state": null,
+      "submission_state": null,
+      "offers_bounties": null,
+      "open_scope": null,
+      "triage_active": null,
+      "started_accepting_at": null,
+      "policy_excerpt": ""
+    },
+    "scope_exclusions": {
+      "count": 1,
+      "sample": [
+        "User Credential Leaks"
+      ]
+    },
+    "weaknesses": {
+      "count": 122,
+      "sample": [
+        "Array Index Underflow",
+        "ASI01: Agent Goal Hijack",
+        "ASI02: Tool Misuse and Exploitation",
+        "ASI03: Identity and Privilege Abuse",
+        "ASI04: Agentic Supply Chain Vulnerabilities",
+        "ASI05: Unexpected Code Execution (RCE)",
+        "ASI06: Memory & Context Poisoning",
+        "ASI07: Insecure Inter-Agent Communication",
+        "ASI08: Cascading Failures",
+        "ASI09: Human-Agent Trust Exploitation"
+      ]
+    },
+    "structured_scopes": {
+      "count": 15,
+      "sample": [
+        {
+          "asset_identifier": "*.yelp.com",
+          "asset_type": "WILDCARD",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "284910350",
+          "asset_type": "APPLE_STORE_APP_ID",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "936983378",
+          "asset_type": "APPLE_STORE_APP_ID",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "542767785",
+          "asset_type": "APPLE_STORE_APP_ID",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "engineeringblog.yelp.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "blog.yelp.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "*.yelp-support.com",
+          "asset_type": "WILDCARD",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "com.yelp.android.biz",
+          "asset_type": "GOOGLE_PLAY_APP_ID",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "com.yelp.android",
+          "asset_type": "GOOGLE_PLAY_APP_ID",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "www.yelp-ir.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "max_severity": "none"
+        }
+      ]
+    },
+    "recent_hacktivity_count": 1,
+    "recent_hacktivity_bounty_count": 0,
+    "recent_hacktivity_items": [
+      {
+        "title": null,
+        "disclosed_at": null,
+        "severity_rating": null,
+        "substate": null,
+        "total_awarded_amount": null,
+        "cwe": null,
+        "cve_ids": null
+      }
+    ],
+    "errors": []
+  },
+  "matomo": {
+    "rank": 5,
+    "registered": false,
+    "program_record": {
+      "name": null,
+      "state": null,
+      "submission_state": null,
+      "offers_bounties": null,
+      "open_scope": null,
+      "triage_active": null,
+      "started_accepting_at": null,
+      "policy_excerpt": ""
+    },
+    "scope_exclusions": {
+      "count": 0,
+      "sample": []
+    },
+    "weaknesses": {
+      "count": 125,
+      "sample": [
+        "Array Index Underflow",
+        "ASI01: Agent Goal Hijack",
+        "ASI02: Tool Misuse and Exploitation",
+        "ASI03: Identity and Privilege Abuse",
+        "ASI04: Agentic Supply Chain Vulnerabilities",
+        "ASI05: Unexpected Code Execution (RCE)",
+        "ASI06: Memory & Context Poisoning",
+        "ASI07: Insecure Inter-Agent Communication",
+        "ASI08: Cascading Failures",
+        "ASI09: Human-Agent Trust Exploitation"
+      ]
+    },
+    "structured_scopes": {
+      "count": 14,
+      "sample": [
+        {
+          "asset_identifier": "https://github.com/matomo-org/matomo",
+          "asset_type": "SOURCE_CODE",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "plugins.matomo.org",
+          "asset_type": "URL",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "https://plugins.matomo.org/developer/matomo-org",
+          "asset_type": "SOURCE_CODE",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "https://plugins.matomo.org/developer/innocraft",
+          "asset_type": "SOURCE_CODE",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "https://github.com/matomo-org",
+          "asset_type": "SOURCE_CODE",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "high"
+        },
+        {
+          "asset_identifier": "https://github.com/innocraft/",
+          "asset_type": "SOURCE_CODE",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "high"
+        },
+        {
+          "asset_identifier": "matomo.cloud",
+          "asset_type": "URL",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "org.piwik.mobile2",
+          "asset_type": "GOOGLE_PLAY_APP_ID",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": true,
+          "max_severity": "medium"
+        },
+        {
+          "asset_identifier": "737216887",
+          "asset_type": "APPLE_STORE_APP_ID",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": true,
+          "max_severity": "medium"
+        },
+        {
+          "asset_identifier": "api.matomo.org",
+          "asset_type": "URL",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "max_severity": "none"
+        }
+      ]
+    },
+    "recent_hacktivity_count": 1,
+    "recent_hacktivity_bounty_count": 1,
+    "recent_hacktivity_items": [
+      {
+        "title": null,
+        "disclosed_at": null,
+        "severity_rating": null,
+        "substate": null,
+        "total_awarded_amount": 777,
+        "cwe": null,
+        "cve_ids": null
+      }
+    ],
+    "errors": []
+  },
+  "airtable": {
+    "rank": 10,
+    "registered": false,
+    "program_record": {
+      "name": null,
+      "state": null,
+      "submission_state": null,
+      "offers_bounties": null,
+      "open_scope": null,
+      "triage_active": null,
+      "started_accepting_at": null,
+      "policy_excerpt": ""
+    },
+    "scope_exclusions": {
+      "count": 0,
+      "sample": []
+    },
+    "weaknesses": {
+      "count": 125,
+      "sample": [
+        "Array Index Underflow",
+        "ASI01: Agent Goal Hijack",
+        "ASI02: Tool Misuse and Exploitation",
+        "ASI03: Identity and Privilege Abuse",
+        "ASI04: Agentic Supply Chain Vulnerabilities",
+        "ASI05: Unexpected Code Execution (RCE)",
+        "ASI06: Memory & Context Poisoning",
+        "ASI07: Insecure Inter-Agent Communication",
+        "ASI08: Cascading Failures",
+        "ASI09: Human-Agent Trust Exploitation"
+      ]
+    },
+    "structured_scopes": {
+      "count": 18,
+      "sample": [
+        {
+          "asset_identifier": "com.FormaGrid.Hyperbase",
+          "asset_type": "APPLE_STORE_APP_ID",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "staging.airtable.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "com.formagrid.airtable",
+          "asset_type": "GOOGLE_PLAY_APP_ID",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "Airtable macOS app",
+          "asset_type": "OTHER",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "Airtable Windows app",
+          "asset_type": "OTHER",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "*.staging-airtableblocks.com",
+          "asset_type": "WILDCARD",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "*.staging.airtable.com",
+          "asset_type": "WILDCARD",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "blog.airtable.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "support.airtable.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "guide.airtable.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "max_severity": "none"
+        }
+      ]
+    },
+    "recent_hacktivity_count": 1,
+    "recent_hacktivity_bounty_count": 1,
+    "recent_hacktivity_items": [
+      {
+        "title": null,
+        "disclosed_at": null,
+        "severity_rating": null,
+        "substate": null,
+        "total_awarded_amount": 100,
+        "cwe": null,
+        "cve_ids": null
+      }
+    ],
+    "errors": []
+  },
+  "valve": {
+    "rank": 8,
+    "registered": false,
+    "program_record": {
+      "name": null,
+      "state": null,
+      "submission_state": null,
+      "offers_bounties": null,
+      "open_scope": null,
+      "triage_active": null,
+      "started_accepting_at": null,
+      "policy_excerpt": ""
+    },
+    "scope_exclusions": {
+      "count": 0,
+      "sample": []
+    },
+    "weaknesses": {
+      "count": 125,
+      "sample": [
+        "Array Index Underflow",
+        "ASI01: Agent Goal Hijack",
+        "ASI02: Tool Misuse and Exploitation",
+        "ASI03: Identity and Privilege Abuse",
+        "ASI04: Agentic Supply Chain Vulnerabilities",
+        "ASI05: Unexpected Code Execution (RCE)",
+        "ASI06: Memory & Context Poisoning",
+        "ASI07: Insecure Inter-Agent Communication",
+        "ASI08: Cascading Failures",
+        "ASI09: Human-Agent Trust Exploitation"
+      ]
+    },
+    "structured_scopes": {
+      "count": 26,
+      "sample": [
+        {
+          "asset_identifier": "www.dota2.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "Steam Servers",
+          "asset_type": "OTHER",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "support.steampowered.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "partner.steampowered.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "valvestore.forfansbyfans.com,store.valvesoftware.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "com.valvesoftware.Steam",
+          "asset_type": "APPLE_STORE_APP_ID",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "com.valvesoftware.Steam",
+          "asset_type": "GOOGLE_PLAY_APP_ID",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "store.steampowered.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "www.valvesoftware.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "api.steampowered.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        }
+      ]
+    },
+    "recent_hacktivity_count": 2,
+    "recent_hacktivity_bounty_count": 2,
+    "recent_hacktivity_items": [
+      {
+        "title": null,
+        "disclosed_at": null,
+        "severity_rating": null,
+        "substate": null,
+        "total_awarded_amount": 750,
+        "cwe": null,
+        "cve_ids": null
+      },
+      {
+        "title": null,
+        "disclosed_at": null,
+        "severity_rating": null,
+        "substate": null,
+        "total_awarded_amount": 2500,
+        "cwe": null,
+        "cve_ids": null
+      }
+    ],
+    "errors": []
+  },
+  "instacart": {
+    "rank": 9,
+    "registered": false,
+    "program_record": {
+      "name": null,
+      "state": null,
+      "submission_state": null,
+      "offers_bounties": null,
+      "open_scope": null,
+      "triage_active": null,
+      "started_accepting_at": null,
+      "policy_excerpt": ""
+    },
+    "scope_exclusions": {
+      "count": 0,
+      "sample": []
+    },
+    "weaknesses": {
+      "count": 161,
+      "sample": [
+        "Allocation of Resources Without Limits or Throttling",
+        "Array Index Underflow",
+        "ASI01: Agent Goal Hijack",
+        "ASI02: Tool Misuse and Exploitation",
+        "ASI03: Identity and Privilege Abuse",
+        "ASI04: Agentic Supply Chain Vulnerabilities",
+        "ASI05: Unexpected Code Execution (RCE)",
+        "ASI06: Memory & Context Poisoning",
+        "ASI07: Insecure Inter-Agent Communication",
+        "ASI08: Cascading Failures"
+      ]
+    },
+    "structured_scopes": {
+      "count": 22,
+      "sample": [
+        {
+          "asset_identifier": "api.instacart.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "www.instacart.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "com.instacart.client",
+          "asset_type": "GOOGLE_PLAY_APP_ID",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "545599256",
+          "asset_type": "APPLE_STORE_APP_ID",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "admin.instacart.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "shoppers.instacart.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "Android & iOS App for Instacart Shoppers",
+          "asset_type": "OTHER",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "brand.instacart.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "careers.instacart.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "carrotstore.instacart.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "max_severity": "none"
+        }
+      ]
+    },
+    "recent_hacktivity_count": 1,
+    "recent_hacktivity_bounty_count": 1,
+    "recent_hacktivity_items": [
+      {
+        "title": null,
+        "disclosed_at": null,
+        "severity_rating": null,
+        "substate": null,
+        "total_awarded_amount": 2000,
+        "cwe": null,
+        "cve_ids": null
+      }
+    ],
+    "errors": []
+  },
+  "8x8-bounty": {
+    "rank": 7,
+    "registered": true,
+    "program_record": {
+      "name": null,
+      "state": null,
+      "submission_state": null,
+      "offers_bounties": null,
+      "open_scope": null,
+      "triage_active": null,
+      "started_accepting_at": null,
+      "policy_excerpt": ""
+    },
+    "scope_exclusions": {
+      "count": 4,
+      "sample": [
+        "IDORs with Unpredictable IDs",
+        "0-day vulnerabilities",
+        "Credential Stuffing",
+        "Client-Side API Keys"
+      ]
+    },
+    "weaknesses": {
+      "count": 173,
+      "sample": [
+        "Allocation of Resources Without Limits or Throttling",
+        "Array Index Underflow",
+        "ASI01: Agent Goal Hijack",
+        "ASI02: Tool Misuse and Exploitation",
+        "ASI03: Identity and Privilege Abuse",
+        "ASI04: Agentic Supply Chain Vulnerabilities",
+        "ASI05: Unexpected Code Execution (RCE)",
+        "ASI06: Memory & Context Poisoning",
+        "ASI07: Insecure Inter-Agent Communication",
+        "ASI08: Cascading Failures"
+      ]
+    },
+    "structured_scopes": {
+      "count": 133,
+      "sample": [
+        {
+          "asset_identifier": "*.8x8.vc",
+          "asset_type": "WILDCARD",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "*.jit.si",
+          "asset_type": "WILDCARD",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "https://github.com/jitsi",
+          "asset_type": "SOURCE_CODE",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "*.jitsi.net",
+          "asset_type": "WILDCARD",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "com.spot8x8.spot",
+          "asset_type": "GOOGLE_PLAY_APP_ID",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "http://*.callstats.io",
+          "asset_type": "WILDCARD",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "connect.8x8.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "org.jitsi.meet",
+          "asset_type": "GOOGLE_PLAY_APP_ID",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "platform.8x8pilot.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "uc.8x8pilot.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        }
+      ]
+    },
+    "recent_hacktivity_count": 0,
+    "recent_hacktivity_bounty_count": 0,
+    "recent_hacktivity_items": [],
+    "errors": []
+  },
+  "gitlab": {
+    "rank": 11,
+    "registered": true,
+    "program_record": {
+      "name": null,
+      "state": null,
+      "submission_state": null,
+      "offers_bounties": null,
+      "open_scope": null,
+      "triage_active": null,
+      "started_accepting_at": null,
+      "policy_excerpt": ""
+    },
+    "scope_exclusions": {
+      "count": 0,
+      "sample": []
+    },
+    "weaknesses": {
+      "count": 151,
+      "sample": [
+        "Array Index Underflow",
+        "ASI01: Agent Goal Hijack",
+        "ASI02: Tool Misuse and Exploitation",
+        "ASI03: Identity and Privilege Abuse",
+        "ASI04: Agentic Supply Chain Vulnerabilities",
+        "ASI05: Unexpected Code Execution (RCE)",
+        "ASI06: Memory & Context Poisoning",
+        "ASI07: Insecure Inter-Agent Communication",
+        "ASI08: Cascading Failures",
+        "ASI09: Human-Agent Trust Exploitation"
+      ]
+    },
+    "structured_scopes": {
+      "count": 44,
+      "sample": [
+        {
+          "asset_identifier": "customers.gitlab.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "registry.gitlab.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "gitlab.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "dashboards.gitlab.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "alerts.gitlab.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "support.gitlab.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "shop.gitlab.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "forum.gitlab.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "status.gitlab.com",
+          "asset_type": "URL",
+          "eligible_for_bounty": false,
+          "eligible_for_submission": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "Your Own GitLab Instance",
+          "asset_type": "OTHER",
+          "eligible_for_bounty": true,
+          "eligible_for_submission": true,
+          "max_severity": "critical"
+        }
+      ]
+    },
+    "recent_hacktivity_count": 0,
+    "recent_hacktivity_bounty_count": 0,
+    "recent_hacktivity_items": [],
+    "errors": []
+  }
+}

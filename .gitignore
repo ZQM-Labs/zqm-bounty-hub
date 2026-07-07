@@ -1,0 +1,11 @@
+# Runtime / generated artifacts
+outputs/cache/
+outputs/evidence/
+outputs/manifests/
+bounty-hub-verify/
+outputs/2026-*
+scripts/outputs/
+
+# Hermes runtime noise
+*.pyc
+__pycache__/

@@ -1,0 +1,7 @@
+{
+  "list_reports": "HTTP 401 | {\"errors\":[{\"status\":401}]}",
+  "me_programs": "HTTP 404 | <html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
+  "program_handle_alt": "HTTP 404 | <html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
+  "hackers_earnings_alt": "HTTP 404 | <html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
+  "report_comments_pattern": "HTTP 401 | {\"errors\":[{\"status\":401}]}"
+}
