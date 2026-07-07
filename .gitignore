@@ -2,6 +2,7 @@
 outputs/cache/
 outputs/evidence/
 outputs/manifests/
+outputs/.cache/
 bounty-hub-verify/
 outputs/2026-*
 scripts/outputs/
