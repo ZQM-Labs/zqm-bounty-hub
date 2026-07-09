@@ -1,6 +1,6 @@
 {
   "bounty_hub": {
-    "version": "1.0.1",
+    "version": "1.0.2",
     "output_root": "C:\\Users\\zqmco\\.hermes\\shared\\skills\\zqm-bounty-hub\\outputs",
     "manifest_format": "<run_id>_<platform_id>_manifest.json",
     "evidence_format": "<run_id>_<task_id>_raw.json",
@@ -73,6 +73,18 @@
       "supported_check_types": ["web_app", "api", "mobile"],
       "rate_limit": "Respect Intigriti API rate limits; handle 429",
       "notes": "EU-oriented programs; confirm GDPR/data-handling constraints before testing. Adapter currently emits unsupported_platform until auth is verified."
+    },
+    "gitlab": {
+      "platform_id": "gitlab",
+      "base_url": "https://gitlab.com/api/v4",
+      "auth_env": "GITLAB_API_TOKEN",
+      "adapter_module": "adapters/gitlab_adapter.py",
+      "required_scope_confirmed": false,
+      "auth_status": "unverified",
+      "failure_reason": "Adapter implemented but not yet tested with live credentials.",
+      "supported_check_types": ["web_app", "api", "mobile", "network"],
+      "rate_limit": "Respect GitLab API rate limits; handle 429",
+      "notes": "GitLab bug bounty programs use project-based targeting. Adapter supports project enumeration, issue tracking, and MR analysis. Verify auth with personal access token before production use."
     }
   },
   "task_expansion_rule": "Each target_id is unique per platform/check combination. Never reuse the same target_id across platforms for parallel runs."
