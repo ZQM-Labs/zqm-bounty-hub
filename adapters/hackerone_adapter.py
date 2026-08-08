@@ -9,21 +9,17 @@ import hashlib
 import json
 import os
 import sys
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any
 
 SKILL_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(SKILL_DIR / "scripts"))
 
-from adapter_registry import (
-    REQUIRED_EVIDENCE_FIELDS,
-    REQUIRED_MANIFEST_FIELDS,
+from adapter_registry import (  # noqa: E402
     load_routing,
-    validate_evidence,
-    validate_manifest,
 )
-import h1_api_client as h1
+import h1_api_client as h1  # noqa: E402
 
 
 def _init_paths_from_registry() -> tuple[Path, Path]:
@@ -47,11 +43,15 @@ def _sha256(s: str) -> str:
 
 
 def _now() -> str:
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
-def _run_compliance_check(parameters: Dict[str, Any]) -> Dict[str, Any]:
-    from compliance_check import check_report_payload, validate_evidence_file, validate_manifest_file
+def _run_compliance_check(parameters: dict[str, Any]) -> dict[str, Any]:
+    from compliance_check import (
+        check_report_payload,
+        validate_evidence_file,
+        validate_manifest_file,
+    )
 
     report_path = Path(parameters.get("report_payload", ""))
     evidence_path = Path(parameters.get("evidence", ""))
@@ -75,11 +75,11 @@ def _run_compliance_check(parameters: Dict[str, Any]) -> Dict[str, Any]:
     return {"status": "non_compliant" if issues else "compliant", "issues": issues}
 
 
-def run(target_id: str, check_type: str, parameters: Dict[str, Any]) -> Dict[str, Any]:
+def run(target_id: str, check_type: str, parameters: dict[str, Any]) -> dict[str, Any]:
     """Run one HackerOne task for the given target_id."""
     _ensure_dirs()
     timestamp = _now()
-    run_id = parameters.get("run_id") or datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
+    run_id = parameters.get("run_id") or datetime.now(UTC).strftime("%Y%m%d%H%M%S")
     task_id = f"h1_{target_id}_{check_type}"
 
     try:

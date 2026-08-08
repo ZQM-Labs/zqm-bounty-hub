@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any
 
 SKILL_DIR = Path(__file__).resolve().parent.parent
 ROUTING_PATH = SKILL_DIR / "adapter-routing.json"
@@ -24,7 +24,7 @@ def load_routing() -> dict:
     return json.loads(ROUTING_PATH.read_text(encoding="utf-8"))
 
 
-def adapter_for(platform: str) -> Dict[str, Any]:
+def adapter_for(platform: str) -> dict[str, Any]:
     routing = load_routing()
     platform_adapters = routing.get("platform_adapters", {})
     if platform not in platform_adapters:

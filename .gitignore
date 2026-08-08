@@ -7,3 +7,6 @@ references/*.md.bak
 # Hermes runtime noise
 *.pyc
 __pycache__/
+
+# Local Python runtime
+Python/

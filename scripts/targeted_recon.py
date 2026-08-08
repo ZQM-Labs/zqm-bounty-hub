@@ -13,12 +13,11 @@ No automated scanners, no fuzzing, no disruption.
 from __future__ import annotations
 
 import json
-import os
 import sys
 import time
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any
 
 SKILL_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(SKILL_DIR / "scripts"))
@@ -54,10 +53,10 @@ def _sha256(s: str) -> str:
 
 
 def _now() -> str:
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
-def _save(platform: str, target_id: str, check_type: str, body: Dict[str, Any]) -> Path:
+def _save(platform: str, target_id: str, check_type: str, body: dict[str, Any]) -> Path:
     result_hash = _sha256(json.dumps(body, ensure_ascii=False, default=str))
     evidence = {
         "platform": platform,
@@ -71,12 +70,12 @@ def _save(platform: str, target_id: str, check_type: str, body: Dict[str, Any]) 
         "headers": {},
         "notes": "targeted reconnaissance only",
     }
-    path = EVIDENCE_DIR / f"{datetime.now(timezone.utc).strftime('%Y%m%d%H%M%S')}_recon_{target_id}_{check_type}_raw.json"
+    path = EVIDENCE_DIR / f"{datetime.now(UTC).strftime('%Y%m%d%H%M%S')}_recon_{target_id}_{check_type}_raw.json"
     path.write_text(json.dumps(evidence, indent=2, ensure_ascii=False), encoding="utf-8")
     return path
 
 
-def curl_probe(host: str, path: str = "/", headers: Dict[str, str] | None = None, follow: bool = False) -> Dict[str, Any]:
+def curl_probe(host: str, path: str = "/", headers: dict[str, str] | None = None, follow: bool = False) -> dict[str, Any]:
     import subprocess
     cmd = ["curl", "-sS", "-i", "--max-time", "20"]
     if follow:
@@ -86,7 +85,7 @@ def curl_probe(host: str, path: str = "/", headers: Dict[str, str] | None = None
             cmd.extend(["-H", f"{k}: {v}"])
     cmd.extend([f"https://{host}{path}"])
     try:
-        proc = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+        proc = subprocess.run(cmd, capture_output=True, text=True, check=False, timeout=30)
         out = proc.stdout
         err = proc.stderr
         # split headers/body
@@ -94,7 +93,7 @@ def curl_probe(host: str, path: str = "/", headers: Dict[str, str] | None = None
         header_text = parts[0] if parts else ""
         body = parts[1] if len(parts) > 1 else ""
         status = None
-        hdrs: Dict[str, str] = {}
+        hdrs: dict[str, str] = {}
         for line in header_text.splitlines():
             if line.lower().startswith("http/"):
                 parts_line = line.split(" ", 2)
@@ -116,7 +115,7 @@ def curl_probe(host: str, path: str = "/", headers: Dict[str, str] | None = None
         return {"host": host, "path": path, "status": None, "headers": {}, "body_sample": None, "curl_stderr": None, "error": str(exc)}
 
 
-def classify_cookies(headers: Dict[str, str]) -> List[str]:
+def classify_cookies(headers: dict[str, str]) -> list[str]:
     findings = []
     set_cookie = headers.get("set-cookie", "")
     if not set_cookie:
@@ -132,7 +131,7 @@ def classify_cookies(headers: Dict[str, str]) -> List[str]:
 
 
 def main() -> int:
-    run_id = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
+    run_id = datetime.now(UTC).strftime("%Y%m%d%H%M%S")
     print(f"Starting targeted reconnaissance run {run_id}")
     results = []
 
@@ -185,7 +184,7 @@ def main() -> int:
                 _save("hackerone", host, "recon_probe", p)
             time.sleep(1.5)
 
-    out = OUTPUT_DIR / f"{datetime.now(timezone.utc).strftime('%Y-%m-%d')}_h1_targeted_recon.json"
+    out = OUTPUT_DIR / f"{datetime.now(UTC).strftime('%Y-%m-%d')}_h1_targeted_recon.json"
     out.write_text(json.dumps({"run_id": run_id, "results": results}, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"\nSaved: {out}")
     return 0

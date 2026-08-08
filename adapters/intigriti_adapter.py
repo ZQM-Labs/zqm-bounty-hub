@@ -13,13 +13,12 @@ import hashlib
 import json
 import os
 import sys
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any
 
 SKILL_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(SKILL_DIR / "scripts"))
-from adapter_registry import validate_evidence, validate_manifest
 EVIDENCE_DIR = SKILL_DIR / "outputs" / "evidence"
 MANIFEST_DIR = SKILL_DIR / "outputs" / "manifests"
 UNVERIFIED_REASON = "Intigriti auth contract unverified; exact endpoint path/headers unknown"
@@ -34,11 +33,11 @@ def _sha256(s: str) -> str:
     return hashlib.sha256(s.encode("utf-8", errors="ignore")).hexdigest()[:16]
 
 
-def run(target_id: str, check_type: str, parameters: Dict[str, Any]) -> Dict[str, Any]:
+def run(target_id: str, check_type: str, parameters: dict[str, Any]) -> dict[str, Any]:
     """Run one Intigriti task."""
     _ensure_dirs()
-    timestamp = datetime.now(timezone.utc).isoformat()
-    run_id = parameters.get("run_id") or datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
+    timestamp = datetime.now(UTC).isoformat()
+    run_id = parameters.get("run_id") or datetime.now(UTC).strftime("%Y%m%d%H%M%S")
     task_id = f"intigriti_{target_id}_{check_type}"
 
     body = {

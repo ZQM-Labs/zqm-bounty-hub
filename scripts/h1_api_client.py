@@ -1,15 +1,16 @@
 """Verified HackerOne API client using urllib instead of requests."""
 import base64
-import re
 import json
 import os
+import re
 import time
-import urllib.request
 import urllib.error
 import urllib.parse
+import urllib.request
 import winreg
+from collections.abc import Generator
 from pathlib import Path
-from typing import Any, Dict, Generator, List, Optional
+from typing import Any
 
 BASE_URL = "https://api.hackerone.com"
 IDENTIFIER = "zqm-computing"
@@ -113,10 +114,10 @@ def effective_token_source_and_token() -> tuple[str, str]:
     return "none", ""
 
 
-def _auth_headers_for(token: str) -> Dict[str, str]:
+def _auth_headers_for(token: str) -> dict[str, str]:
     if not token:
         raise RuntimeError(f"Missing required secret: {REQUIRED_SECRET}")
-    if token.startswith("h1_") or token.startswith("H1_") or ":" in token:
+    if token.startswith(("h1_", "H1_")) or ":" in token:
         basic = base64.b64encode(f"{IDENTIFIER}:{token}".encode("ascii")).decode("ascii")
         return {
             "Authorization": f"Basic {basic}",
@@ -128,7 +129,7 @@ def _auth_headers_for(token: str) -> Dict[str, str]:
     }
 
 
-def auth_headers() -> Dict[str, str]:
+def auth_headers() -> dict[str, str]:
     tok = _token()
     if not tok:
         raise RuntimeError(f"Missing required secret: {REQUIRED_SECRET}")
@@ -138,7 +139,7 @@ def auth_headers() -> Dict[str, str]:
 def _check_response(body: bytes) -> None:
     try:
         payload = json.loads(body.decode("utf-8", errors="ignore"))
-    except Exception:
+    except Exception:  
         return
     errs = payload.get("errors") or []
     if not errs:
@@ -150,14 +151,14 @@ def _check_response(body: bytes) -> None:
         )
 
 
-def _url(path: str, params: Optional[Dict[str, Any]] = None) -> str:
+def _url(path: str, params: dict[str, Any] | None = None) -> str:
     url = f"{BASE_URL}{path}"
     if params:
         url = f"{url}?{urllib.parse.urlencode(params)}"
     return url
 
 
-def _get_json(path: str, params: Optional[Dict[str, Any]] = None, *, source_meta: bool = False) -> Dict[str, Any]:
+def _get_json(path: str, params: dict[str, Any] | None = None, *, source_meta: bool = False) -> dict[str, Any]:
     auth_failed = False
     last_err = None
     last_source = None
@@ -218,9 +219,9 @@ def _extract_retry_after(error: urllib.error.HTTPError) -> int:
 
 def iter_all(
     path: str,
-    params: Optional[Dict[str, Any]] = None,
+    params: dict[str, Any] | None = None,
     delay: float = 0.35,
-) -> Generator[Dict[str, Any], None, None]:
+) -> Generator[dict[str, Any], None, None]:
     page = 1
     while True:
         payload = _get_json(
@@ -237,55 +238,55 @@ def iter_all(
         time.sleep(delay)
 
 
-def programs() -> List[Dict[str, Any]]:
+def programs() -> list[dict[str, Any]]:
     return list(iter_all("/v1/hackers/programs"))
 
 
-def hacktivity() -> List[Dict[str, Any]]:
+def hacktivity() -> list[dict[str, Any]]:
     return list(iter_all("/v1/hackers/hacktivity"))
 
 
-def my_reports() -> List[Dict[str, Any]]:
+def my_reports() -> list[dict[str, Any]]:
     return list(iter_all("/v1/hackers/me/reports"))
 
 
-def me() -> Dict[str, Any]:
+def me() -> dict[str, Any]:
     return _get_json("/v1/hackers/me")
 
 
-def balance() -> Dict[str, Any]:
+def balance() -> dict[str, Any]:
     return _get_json("/v1/hackers/payments/balance")
 
 
-def earnings() -> List[Dict[str, Any]]:
+def earnings() -> list[dict[str, Any]]:
     return list(iter_all("/v1/hackers/payments/earnings"))
 
 
-def payouts() -> List[Dict[str, Any]]:
+def payouts() -> list[dict[str, Any]]:
     return list(iter_all("/v1/hackers/payments/payouts"))
 
 
-def program_by_handle(handle: str) -> Dict[str, Any]:
+def program_by_handle(handle: str) -> dict[str, Any]:
     return _get_json(f"/v1/hackers/programs/{handle}")
 
 
-def structured_scopes(handle: str) -> List[Dict[str, Any]]:
+def structured_scopes(handle: str) -> list[dict[str, Any]]:
     return list(iter_all(f"/v1/hackers/programs/{handle}/structured_scopes"))
 
 
-def scope_exclusions(handle: str) -> List[Dict[str, Any]]:
+def scope_exclusions(handle: str) -> list[dict[str, Any]]:
     return list(iter_all(f"/v1/hackers/programs/{handle}/scope_exclusions"))
 
 
-def program_weaknesses(handle: str) -> List[Dict[str, Any]]:
+def program_weaknesses(handle: str) -> list[dict[str, Any]]:
     return list(iter_all(f"/v1/hackers/programs/{handle}/weaknesses"))
 
 
-def report_intents() -> List[Dict[str, Any]]:
+def report_intents() -> list[dict[str, Any]]:
     return list(iter_all("/v1/hackers/report_intents"))
 
 
-def hacktivity_program(program_handle: Optional[str] = None) -> List[Dict[str, Any]]:
+def hacktivity_program(program_handle: str | None = None) -> list[dict[str, Any]]:
     if program_handle:
         path = f"/v1/hackers/hacktivity?queryString=team:{program_handle}"
     else:

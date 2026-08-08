@@ -13,16 +13,14 @@ import json
 import os
 import sys
 import time
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any
 
 SKILL_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(SKILL_DIR / "scripts"))
 
-from adapter_registry import load_routing
-import h1_api_client as h1
-
+import h1_api_client as h1  # noqa: E402
 
 OUTPUT_DIR = SKILL_DIR / "outputs"
 EVIDENCE_DIR = OUTPUT_DIR / "evidence"
@@ -39,7 +37,7 @@ PRIORITY_HANDLES = [
 
 
 def _now() -> str:
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
 def _sha256(s: str) -> str:
@@ -52,15 +50,15 @@ def _ensure_dirs() -> None:
     MANIFEST_DIR.mkdir(parents=True, exist_ok=True)
 
 
-def _save_evidence(evidence: Dict[str, Any]) -> Path:
-    run_id = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
+def _save_evidence(evidence: dict[str, Any]) -> Path:
+    run_id = datetime.now(UTC).strftime("%Y%m%d%H%M%S")
     task_id = f"h1_{evidence['target_id']}_{evidence['check_type']}"
     path = EVIDENCE_DIR / f"{run_id}_{task_id}_raw.json"
     path.write_text(json.dumps(evidence, indent=2, ensure_ascii=False), encoding="utf-8")
     return path
 
 
-def _save_manifest(manifest: Dict[str, Any]) -> Path:
+def _save_manifest(manifest: dict[str, Any]) -> Path:
     run_id = manifest["run_id"]
     path = MANIFEST_DIR / f"{run_id}_hackerone_manifest.jsonl"
     with open(path, "a", encoding="utf-8") as f:
@@ -68,7 +66,7 @@ def _save_manifest(manifest: Dict[str, Any]) -> Path:
     return path
 
 
-def _build_evidence(platform: str, target_id: str, check_type: str, status: str, body: Dict[str, Any], requires_auth: bool = True) -> Dict[str, Any]:
+def _build_evidence(platform: str, target_id: str, check_type: str, status: str, body: dict[str, Any], requires_auth: bool = True) -> dict[str, Any]:
     result_hash = _sha256(json.dumps(body, ensure_ascii=False, default=str))
     evidence = {
         "platform": platform,
@@ -83,7 +81,7 @@ def _build_evidence(platform: str, target_id: str, check_type: str, status: str,
     }
     _save_evidence(evidence)
     manifest = {
-        "run_id": datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S"),
+        "run_id": datetime.now(UTC).strftime("%Y%m%d%H%M%S"),
         "platform": platform,
         "result_count": 1 if status == "ok" else 0,
         "result_hash": result_hash,
@@ -97,7 +95,7 @@ def _build_evidence(platform: str, target_id: str, check_type: str, status: str,
     return evidence
 
 
-def _get_program_weaknesses(handle: str) -> List[Dict[str, Any]]:
+def _get_program_weaknesses(handle: str) -> list[dict[str, Any]]:
     try:
         data = h1.program_weaknesses(handle)
         _build_evidence("hackerone", f"prog_{handle}", "weaknesses", "ok", {"weaknesses": data})
@@ -107,7 +105,7 @@ def _get_program_weaknesses(handle: str) -> List[Dict[str, Any]]:
         return []
 
 
-def _get_hacktivity_for_program(handle: str) -> List[Dict[str, Any]]:
+def _get_hacktivity_for_program(handle: str) -> list[dict[str, Any]]:
     try:
         data = h1.hacktivity(program_handle=handle)
         return data
@@ -117,7 +115,7 @@ def _get_hacktivity_for_program(handle: str) -> List[Dict[str, Any]]:
         return []
 
 
-def analyze_weaknesses(weaknesses: List[Dict[str, Any]]) -> Dict[str, Any]:
+def analyze_weaknesses(weaknesses: list[dict[str, Any]]) -> dict[str, Any]:
     names = [w.get("attributes", {}).get("name", "") for w in weaknesses]
     return {
         "total": len(weaknesses),
@@ -126,12 +124,12 @@ def analyze_weaknesses(weaknesses: List[Dict[str, Any]]) -> Dict[str, Any]:
     }
 
 
-def analyze_hacktivity(items: List[Dict[str, Any]]) -> Dict[str, Any]:
+def analyze_hacktivity(items: list[dict[str, Any]]) -> dict[str, Any]:
     disclosed = [it for it in items if it.get("attributes", {}).get("disclosed")]
     awarded = [it for it in items if it.get("attributes", {}).get("total_awarded_amount")]
 
-    severity_counts: Dict[str, int] = {}
-    weakness_counts: Dict[str, int] = {}
+    severity_counts: dict[str, int] = {}
+    weakness_counts: dict[str, int] = {}
     total_awarded = 0.0
     for it in items:
         attrs = it.get("attributes", {})
@@ -154,7 +152,7 @@ def analyze_hacktivity(items: List[Dict[str, Any]]) -> Dict[str, Any]:
 
 def main() -> int:
     _ensure_dirs()
-    run_id = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
+    run_id = datetime.now(UTC).strftime("%Y%m%d%H%M%S")
     print(f"Starting hacktivity pattern analysis run {run_id}")
     print(f"Targets: {', '.join(PRIORITY_HANDLES)}")
     print()
@@ -179,7 +177,7 @@ def main() -> int:
         # pace to respect structured-scope-like read cadence
         time.sleep(0.8)
 
-    out_path = OUTPUT_DIR / f"{datetime.now(timezone.utc).strftime('%Y-%m-%d')}_h1_hacktivity_patterns.json"
+    out_path = OUTPUT_DIR / f"{datetime.now(UTC).strftime('%Y-%m-%d')}_h1_hacktivity_patterns.json"
     out_path.write_text(json.dumps({"run_id": run_id, "plans": results}, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"\nSaved: {out_path}")
     return 0
