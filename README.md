@@ -1,5 +1,8 @@
 # ZQM Bounty Hub
 
+[![CI](https://github.com/ZQM-Labs/zqm-bounty-hub/actions/workflows/ci.yml/badge.svg)](https://github.com/ZQM-Labs/zqm-bounty-hub/actions/workflows/ci.yml) [![Tests](https://github.com/ZQM-Labs/zqm-bounty-hub/actions/workflows/tests.yml/badge.svg)](https://github.com/ZQM-Labs/zqm-bounty-hub/actions/workflows/tests.yml) [![Ruff](https://github.com/ZQM-Labs/zqm-bounty-hub/actions/workflows/ci.yml/badge.svg)](https://github.com/ZQM-Labs/zqm-bounty-hub/actions/workflows/ci.yml) [![mypy](https://github.com/ZQM-Labs/zqm-bounty-hub/actions/workflows/ci.yml/badge.svg)](https://github.com/ZQM-Labs/zqm-bounty-hub/actions/workflows/ci.yml)
+
+
 Automation workflows for platform verification, claim processing, bounty tracking, and GitHub automation.
 
 ## What is this?
