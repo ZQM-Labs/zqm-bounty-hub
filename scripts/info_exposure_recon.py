@@ -13,6 +13,7 @@ import json
 import os
 import re
 import subprocess
+import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -124,7 +125,6 @@ def _save(platform: str, target_id: str, check_type: str, body: Dict[str, Any]) 
 
 
 def curl_get(host: str, path: str) -> Dict[str, Any]:
-    import subprocess
     cmd = ["curl", "-sS", "-i", "--max-time", "20", f"https://{host}{path}"]
     try:
         proc = subprocess.run(cmd, capture_output=True, text=True, timeout=30)

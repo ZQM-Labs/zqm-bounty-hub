@@ -20,7 +20,6 @@ from typing import Any, Dict, List
 SKILL_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(SKILL_DIR / "scripts"))
 
-from adapter_registry import load_routing
 import h1_api_client as h1
 
 

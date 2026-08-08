@@ -16,13 +16,8 @@ from typing import Any, Dict
 SKILL_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(SKILL_DIR / "scripts"))
 
-from adapter_registry import (
-    REQUIRED_EVIDENCE_FIELDS,
-    REQUIRED_MANIFEST_FIELDS,
-    load_routing,
-    validate_evidence,
-    validate_manifest,
-)
+from adapter_registry import load_routing
+
 import h1_api_client as h1
 
 

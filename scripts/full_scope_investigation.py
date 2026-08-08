@@ -21,7 +21,6 @@ from typing import Any, Dict, List
 SKILL_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(SKILL_DIR / "scripts"))
 
-from adapter_registry import load_routing
 import h1_api_client as h1
 
 
@@ -230,7 +229,7 @@ def main() -> int:
         # gentle pacing; respect 50 req/min structured scope boundary
         time.sleep(1.2)
 
-    out_path = OUT_PATH.parent / f"{datetime.now(timezone.utc).strftime('%Y-%m-%d')}_h1_full_scope_investigation.json"
+    out_path = EVIDENCE_DIR / f"{datetime.now(timezone.utc).strftime('%Y-%m-%d')}_h1_full_scope_investigation.json"
     out_path.write_text(json.dumps({"run_id": run_id, "plans": plans}, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"\nSaved investigation: {out_path}")
 
