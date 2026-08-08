@@ -138,7 +138,7 @@ class GitLabAdapter:
                 }
                 for issue in issues
             ]
-        except Exception:  # noqa: BLE001
+        except Exception:  
             return []
     
     def get_merge_requests(self, project_id: str, state: str = "all") -> dict:

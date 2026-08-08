@@ -26,7 +26,7 @@ def _persist_token(tok: str) -> None:
     try:
         TOKEN_CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
         TOKEN_CACHE_PATH.write_text(tok, encoding="utf-8")
-    except Exception:  # noqa: S110, BLE001
+    except Exception:
         pass
 
 
@@ -34,7 +34,7 @@ def _load_persisted_token() -> str:
     try:
         if TOKEN_CACHE_PATH.exists():
             return TOKEN_CACHE_PATH.read_text(encoding="utf-8").strip()
-    except Exception:  # noqa: S110, BLE001
+    except Exception:
         pass
     return ""
 
@@ -71,7 +71,7 @@ def _token_from_registry() -> str:
             return tok
     except FileNotFoundError:
         pass
-    except Exception:  # noqa: S110, BLE001
+    except Exception:
         pass
     return ""
 
@@ -89,7 +89,7 @@ def token_source() -> str:
                 tok = ""
         if tok and isinstance(tok, str) and tok.strip():
             return "registry"
-    except Exception:  # noqa: S110, BLE001
+    except Exception:
         pass
     return "none"
 
@@ -109,7 +109,7 @@ def effective_token_source_and_token() -> tuple[str, str]:
                 tok = ""
         if tok and isinstance(tok, str) and tok.strip():
             return "registry", tok.strip()
-    except Exception:  # noqa: S110, BLE001
+    except Exception:
         pass
     return "none", ""
 
@@ -139,7 +139,7 @@ def auth_headers() -> dict[str, str]:
 def _check_response(body: bytes) -> None:
     try:
         payload = json.loads(body.decode("utf-8", errors="ignore"))
-    except Exception:  # noqa: BLE001
+    except Exception:  
         return
     errs = payload.get("errors") or []
     if not errs:
@@ -184,7 +184,7 @@ def _get_json(path: str, params: dict[str, Any] | None = None, *, source_meta: b
             payload = {}
             try:
                 payload = json.loads(detail)
-            except Exception:  # noqa: S110, BLE001
+            except Exception:
                 pass
             errs = payload.get("errors") or []
             status = str((errs[0].get("status") or "") if errs else "")
@@ -212,7 +212,7 @@ def _extract_retry_after(error: urllib.error.HTTPError) -> int:
         m = re.search(r"(\d+)\s*(?:seconds|second|s)", detail, re.IGNORECASE)
         if m:
             return int(m.group(1))
-    except Exception:  # noqa: S110, BLE001
+    except Exception:
         pass
     return 1
 

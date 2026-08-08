@@ -20,7 +20,7 @@ from typing import Any
 SKILL_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(SKILL_DIR / "scripts"))
 
-import h1_api_client as h1
+import h1_api_client as h1  # noqa: E402
 
 OUTPUT_DIR = SKILL_DIR / "outputs"
 EVIDENCE_DIR = OUTPUT_DIR / "evidence"
@@ -100,7 +100,7 @@ def _get_program_weaknesses(handle: str) -> list[dict[str, Any]]:
         data = h1.program_weaknesses(handle)
         _build_evidence("hackerone", f"prog_{handle}", "weaknesses", "ok", {"weaknesses": data})
         return data
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         _build_evidence("hackerone", f"prog_{handle}", "weaknesses", "error", {"error": str(exc)})
         return []
 
@@ -109,7 +109,7 @@ def _get_hacktivity_for_program(handle: str) -> list[dict[str, Any]]:
     try:
         data = h1.hacktivity(program_handle=handle)
         return data
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         # team-filtered may 400; if so, global feed is already captured elsewhere
         _build_evidence("hackerone", f"prog_{handle}", "hacktivity_program", "error", {"error": str(exc)})
         return []

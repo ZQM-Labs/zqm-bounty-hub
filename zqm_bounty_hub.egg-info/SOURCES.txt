@@ -1,6 +1,8 @@
 LICENSE
 README.md
 pyproject.toml
+Python/bin/pip.exe.__script__.py
+Python/bin/pip3.exe.__script__.py
 adapters/__init__.py
 adapters/bugcrowd_adapter.py
 adapters/gitlab_adapter.py

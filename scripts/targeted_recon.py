@@ -85,7 +85,7 @@ def curl_probe(host: str, path: str = "/", headers: dict[str, str] | None = None
             cmd.extend(["-H", f"{k}: {v}"])
     cmd.extend([f"https://{host}{path}"])
     try:
-        proc = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+        proc = subprocess.run(cmd, capture_output=True, text=True, check=False, timeout=30)
         out = proc.stdout
         err = proc.stderr
         # split headers/body
@@ -111,7 +111,7 @@ def curl_probe(host: str, path: str = "/", headers: dict[str, str] | None = None
             "curl_stderr": err[:500],
             "error": None,
         }
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         return {"host": host, "path": path, "status": None, "headers": {}, "body_sample": None, "curl_stderr": None, "error": str(exc)}
 
 

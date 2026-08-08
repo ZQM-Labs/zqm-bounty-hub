@@ -79,7 +79,7 @@ def passive_dns(host: str) -> dict[str, Any]:
     try:
         ip = socket.gethostbyname(host)
         return {"host": host, "ip": ip, "error": None}
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         return {"host": host, "ip": None, "error": str(exc)}
 
 
@@ -98,7 +98,7 @@ def crt_sh(host: str) -> dict[str, Any]:
             if name:
                 names.append(name)
         return {"host": host, "names": names, "count": len(names), "error": None}
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         return {"host": host, "names": [], "count": 0, "error": str(exc)}
 
 
@@ -113,7 +113,7 @@ def wayback(host: str) -> dict[str, Any]:
             data = _json.loads(r.read().decode("utf-8", errors="ignore"))
         snap = data.get("archived_snapshots", {}).get("closest", {})
         return {"host": host, "available": bool(snap), "url": snap.get("url"), "timestamp": snap.get("timestamp"), "error": None}
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         return {"host": host, "available": False, "url": None, "timestamp": None, "error": str(exc)}
 
 
@@ -134,7 +134,7 @@ def github_search(host: str) -> dict[str, Any]:
             "items": [{"name": it.get("name"), "html_url": it.get("html_url"), "repo": it.get("repository", {}).get("full_name")} for it in items],
             "error": None,
         }
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         return {"host": host, "total": 0, "items": [], "error": str(exc)}
 
 
@@ -161,7 +161,7 @@ def public_headers(host: str) -> dict[str, Any]:
             "headers": dict(list(headers.items())[:30]),
             "error": str(exc),
         }
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         return {"host": host, "status": None, "headers": {}, "error": str(exc)}
 
 

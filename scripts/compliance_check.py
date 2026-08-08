@@ -291,7 +291,7 @@ def validate_evidence_file(path: Path) -> list[str]:
         return [f"Missing evidence file: {path}"]
     try:
         data = load_json(path)
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         return [f"Evidence file unreadable: {exc}"]
 
     for key in ["platform", "target_id", "check_type", "status", "result_hash", "timestamp", "requires_auth", "body", "headers"]:
@@ -311,7 +311,7 @@ def validate_manifest_file(path: Path) -> list[str]:
         return [f"Missing manifest file: {path}"]
     try:
         text = path.read_text(encoding="utf-8")
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         return [f"Manifest file unreadable: {exc}"]
 
     seen = 0
@@ -320,7 +320,7 @@ def validate_manifest_file(path: Path) -> list[str]:
             continue
         try:
             data = json.loads(line)
-        except Exception as exc:  # noqa: BLE001
+        except Exception as exc:
             issues.append(f"Manifest line {lineno} invalid JSON: {exc}")
             continue
         seen += 1
@@ -392,7 +392,7 @@ def _check_evidence_compliance(path: Path) -> list[str]:
     issues: list[str] = []
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         return [f"Evidence file unreadable: {exc}"]
     required_keys = ["platform", "target_id", "check_type", "status", "result_hash", "timestamp", "requires_auth", "body", "headers"]
     for key in required_keys:
@@ -420,7 +420,7 @@ def _check_manifest_compliance(path: Path) -> list[str]:
     issues: list[str] = []
     try:
         text = path.read_text(encoding="utf-8")
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         return [f"Manifest file unreadable: {exc}"]
     seen = 0
     for lineno, line in enumerate(text.splitlines(), 1):
@@ -428,7 +428,7 @@ def _check_manifest_compliance(path: Path) -> list[str]:
             continue
         try:
             data = json.loads(line)
-        except Exception as exc:  # noqa: BLE001
+        except Exception as exc:
             issues.append(f"Manifest line {lineno} invalid JSON: {exc}")
             continue
         seen += 1
@@ -460,7 +460,7 @@ def _main(argv: list[str] | None = None) -> int:
     if args.payload:
         try:
             payload = json.loads(Path(args.payload).read_text(encoding="utf-8"))
-        except Exception as exc:  # noqa: BLE001
+        except Exception as exc:
             print(f"Payload unreadable: {exc}")
             return 2
         issues = check_report_payload(payload)

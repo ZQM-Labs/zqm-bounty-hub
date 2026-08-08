@@ -11,7 +11,7 @@ from typing import Any
 
 SKILL_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(SKILL_DIR / "scripts"))
-import h1_api_client as h1
+import h1_api_client as h1  # noqa: E402
 
 EVIDENCE_DIR = SKILL_DIR / "outputs" / "evidence"
 MANIFEST_DIR = SKILL_DIR / "outputs" / "manifests"

@@ -16,10 +16,10 @@ from typing import Any
 SKILL_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(SKILL_DIR / "scripts"))
 
-import h1_api_client as h1
-from adapter_registry import (
+from adapter_registry import (  # noqa: E402
     load_routing,
 )
+import h1_api_client as h1  # noqa: E402
 
 
 def _init_paths_from_registry() -> tuple[Path, Path]:
@@ -62,7 +62,7 @@ def _run_compliance_check(parameters: dict[str, Any]) -> dict[str, Any]:
         try:
             payload = json.loads(report_path.read_text(encoding="utf-8"))
             issues.extend(check_report_payload(payload))
-        except Exception as exc:  # noqa: BLE001
+        except Exception as exc:
             issues.append(f"report_payload unreadable: {exc}")
     else:
         issues.append("report_payload path missing")
@@ -122,7 +122,7 @@ def run(target_id: str, check_type: str, parameters: dict[str, Any]) -> dict[str
             else:
                 status = "compliant"
                 requires_auth = False
-    except Exception as exc:  # noqa: BLE001  # pragma: no cover
+    except Exception as exc:  # pragma: no cover
         body = {"error": str(exc)}
         status = "error"
         requires_auth = True

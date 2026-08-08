@@ -1,6 +1,5 @@
 import base64
 import json
-import os
 import sys
 import tempfile
 import unittest
@@ -10,7 +9,7 @@ from unittest.mock import patch
 REPO_ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(REPO_ROOT))
 
-import h1_api_client as h1
+import h1_api_client as h1  # noqa: E402
 
 
 class AuthHeaderSelection(unittest.TestCase):

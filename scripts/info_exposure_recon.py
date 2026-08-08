@@ -126,7 +126,7 @@ def _save(platform: str, target_id: str, check_type: str, body: dict[str, Any]) 
 def curl_get(host: str, path: str) -> dict[str, Any]:
     cmd = ["curl", "-sS", "-i", "--max-time", "20", f"https://{host}{path}"]
     try:
-        proc = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+        proc = subprocess.run(cmd, capture_output=True, text=True, check=True, timeout=30)
         out = proc.stdout
         parts = out.split("\r\n\r\n", 1)
         header_text = parts[0] if parts else ""
@@ -149,7 +149,7 @@ def curl_get(host: str, path: str) -> dict[str, Any]:
             "body": body,
             "error": None,
         }
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         return {"host": host, "path": path, "status": None, "headers": {}, "body": None, "error": str(exc)}
 
 
