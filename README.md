@@ -227,3 +227,7 @@ This skill does not provide legal advice. Consult each program's governing docs 
 
 See the canonical skill tree:
 `C:\Users\zqmco\.hermes\shared\skills\zqm-bounty-hub\`
+
+## Integration: zqm-intel-platforms
+
+This repo integrates with the [zqm-intel-platforms](https://github.com/ZQM-Labs/zqm-intel-platforms) hub for fleet-wide attestation and orchestration.
