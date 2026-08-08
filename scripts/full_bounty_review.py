@@ -4,9 +4,9 @@ from __future__ import annotations
 import json
 import os
 import time
-from datetime import datetime, timezone
-from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from datetime import UTC, datetime
+from pathlib import Path
 
 import requests
 
@@ -148,7 +148,7 @@ def process_program(sess: requests.Session, program: dict, disclosed_lookup: dic
 
 def main() -> int:
     print("Starting full bounty review...", flush=True)
-    start = datetime.now(timezone.utc)
+    start = datetime.now(UTC)
     sess = session()
 
     # 1. Programs catalog
@@ -174,7 +174,7 @@ def main() -> int:
                 result = future.result()
                 if result:
                     enriched.append(result)
-            except Exception as exc:
+            except Exception as exc:  # noqa: BLE001
                 handle = futures[future].get("attributes", {}).get("handle", "?")
                 print(f"Error processing {handle}: {exc}", flush=True)
             if i % 100 == 0:
@@ -214,7 +214,7 @@ def main() -> int:
     }
 
     out = {
-        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "platform": "hackerone",
         "review_type": "full_bounty_review",
         "auth_identifier": IDENTIFIER,
@@ -225,7 +225,7 @@ def main() -> int:
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUT_PATH.write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")
 
-    elapsed = (datetime.now(timezone.utc) - start).total_seconds()
+    elapsed = (datetime.now(UTC) - start).total_seconds()
     print(f"Completed in {elapsed:.1f}s", flush=True)
     print(f"Summary: {summary['total_programs']} total, {summary['offers_bounties']} offer bounties, {summary['submission_open']} open, {summary['value_positive']} positive value", flush=True)
     print("Top 10:", flush=True)

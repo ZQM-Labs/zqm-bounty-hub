@@ -4,7 +4,7 @@ from __future__ import annotations
 import json
 import re
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any
 
 SKILL_DIR = Path(__file__).resolve().parent.parent
 DEFAULT_OUTPUT_ROOT = SKILL_DIR / "outputs"
@@ -81,7 +81,7 @@ UNSUPPORTED_CLAIM_PATTERNS = [
 ]
 
 
-def check_report_quality(text: str) -> List[str]:
+def check_report_quality(text: str) -> list[str]:
     """Check for low-quality/scanner-copied report language."""
     issues = []
     lowered = text.lower()
@@ -91,7 +91,7 @@ def check_report_quality(text: str) -> List[str]:
     return issues
 
 
-def check_technical_consistency(text: str) -> List[str]:
+def check_technical_consistency(text: str) -> list[str]:
     """Check for inconsistent technical claims without supporting evidence language."""
     issues = []
     lowered = text.lower()
@@ -101,9 +101,9 @@ def check_technical_consistency(text: str) -> List[str]:
     return issues
 
 
-def check_report_payload(payload: Dict[str, Any]) -> List[str]:
+def check_report_payload(payload: dict[str, Any]) -> list[str]:
     """Validate a draft report payload against compliance rules."""
-    issues: List[str] = []
+    issues: list[str] = []
     attrs = payload.get("data", {}).get("attributes", {})
     text_blobs = [
         attrs.get("title", ""),
@@ -140,23 +140,23 @@ def check_report_payload(payload: Dict[str, Any]) -> List[str]:
     return issues
 
 
-def _check_prohibited_content(text: str) -> List[str]:
-    issues: List[str] = []
+def _check_prohibited_content(text: str) -> list[str]:
+    issues: list[str] = []
     for phrase in PROHIBITED_PHRASES:
         if phrase in text:
             issues.append(f"Prohibited content detected: {phrase}")
     return issues
 
 
-def _check_severity_inflation(text: str) -> List[str]:
-    issues: List[str] = []
+def _check_severity_inflation(text: str) -> list[str]:
+    issues: list[str] = []
     for phrase in INFLATED_PHRASES:
         if phrase in text:
             issues.append(f"Possible severity inflation without evidence: {phrase}")
     return issues
 
 
-def _check_scope_boundary_violations(text: str) -> List[str]:
+def _check_scope_boundary_violations(text: str) -> list[str]:
     findings = [
         "test subdomains or systems not explicitly listed",
         "test social engineering",
@@ -168,7 +168,7 @@ def _check_scope_boundary_violations(text: str) -> List[str]:
     return _match_block("Possible scope boundary violation", text, findings)
 
 
-def _check_disclosure_violations(text: str) -> List[str]:
+def _check_disclosure_violations(text: str) -> list[str]:
     findings = [
         "submit duplicate reports",
         "duplicate report",
@@ -184,7 +184,7 @@ def _check_disclosure_violations(text: str) -> List[str]:
     return _match_block("Possible disclosure policy violation", text, findings)
 
 
-def _check_behavioral_violations(text: str) -> List[str]:
+def _check_behavioral_violations(text: str) -> list[str]:
     findings = [
         "harass or threaten the program",
         "threaten the program",
@@ -217,7 +217,7 @@ def _check_behavioral_violations(text: str) -> List[str]:
     return _match_block("Possible behavioral violation", text, findings)
 
 
-def _check_interaction_violations(text: str) -> List[str]:
+def _check_interaction_violations(text: str) -> list[str]:
     findings = [
         "demand bounties or threaten disclosure",
         "demand bounties",
@@ -248,7 +248,7 @@ def _check_interaction_violations(text: str) -> List[str]:
     return _match_block("Possible interaction/comms violation", text, findings)
 
 
-def _check_post_disclosure_violations(text: str) -> List[str]:
+def _check_post_disclosure_violations(text: str) -> list[str]:
     findings = [
         "continue testing after disclosure",
         "authorization ends",
@@ -261,7 +261,7 @@ def _check_post_disclosure_violations(text: str) -> List[str]:
     return _match_block("Possible post-disclosure policy violation", text, findings)
 
 
-def _check_general_rule_violations(text: str) -> List[str]:
+def _check_general_rule_violations(text: str) -> list[str]:
     findings = [
         "is this okay",
         "if you're asking",
@@ -272,8 +272,8 @@ def _check_general_rule_violations(text: str) -> List[str]:
     return _match_block("Possible general-rule risk wording", text, findings)
 
 
-def _match_block(prefix: str, text: str, phrases: List[str]) -> List[str]:
-    issues: List[str] = []
+def _match_block(prefix: str, text: str, phrases: list[str]) -> list[str]:
+    issues: list[str] = []
     lowered = text.lower()
     for phrase in phrases:
         if phrase in lowered:
@@ -281,17 +281,17 @@ def _match_block(prefix: str, text: str, phrases: List[str]) -> List[str]:
     return issues
 
 
-def load_json(path: Path) -> Dict[str, Any]:
+def load_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def validate_evidence_file(path: Path) -> List[str]:
-    issues: List[str] = []
+def validate_evidence_file(path: Path) -> list[str]:
+    issues: list[str] = []
     if not path.exists():
         return [f"Missing evidence file: {path}"]
     try:
         data = load_json(path)
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001
         return [f"Evidence file unreadable: {exc}"]
 
     for key in ["platform", "target_id", "check_type", "status", "result_hash", "timestamp", "requires_auth", "body", "headers"]:
@@ -305,13 +305,13 @@ def validate_evidence_file(path: Path) -> List[str]:
     return issues
 
 
-def validate_manifest_file(path: Path) -> List[str]:
-    issues: List[str] = []
+def validate_manifest_file(path: Path) -> list[str]:
+    issues: list[str] = []
     if not path.exists():
         return [f"Missing manifest file: {path}"]
     try:
         text = path.read_text(encoding="utf-8")
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001
         return [f"Manifest file unreadable: {exc}"]
 
     seen = 0
@@ -320,7 +320,7 @@ def validate_manifest_file(path: Path) -> List[str]:
             continue
         try:
             data = json.loads(line)
-        except Exception as exc:
+        except Exception as exc:  # noqa: BLE001
             issues.append(f"Manifest line {lineno} invalid JSON: {exc}")
             continue
         seen += 1
@@ -350,22 +350,22 @@ def _flatten_json_text(value: Any) -> str:
     if isinstance(value, str):
         return value
     if isinstance(value, dict):
-        parts: List[str] = []
+        parts: list[str] = []
         for key, val in value.items():
             parts.append(str(key))
             parts.append(_flatten_json_text(val))
         return "\n".join(parts)
     if isinstance(value, list):
-        parts: List[str] = []
+        parts: list[str] = []
         for item in value:
             parts.append(_flatten_json_text(item))
         return "\n".join(parts)
     return "" if value is None else str(value)
 
 
-def validate_output_root(output_root: Path | None = None) -> Dict[str, Any]:
+def validate_output_root(output_root: Path | None = None) -> dict[str, Any]:
     root = Path(output_root) if output_root else DEFAULT_OUTPUT_ROOT
-    result: Dict[str, Any] = {
+    result: dict[str, Any] = {
         "output_root": str(root),
         "evidence_checked": 0,
         "manifest_checked": 0,
@@ -388,11 +388,11 @@ def validate_output_root(output_root: Path | None = None) -> Dict[str, Any]:
     return result
 
 
-def _check_evidence_compliance(path: Path) -> List[str]:
-    issues: List[str] = []
+def _check_evidence_compliance(path: Path) -> list[str]:
+    issues: list[str] = []
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001
         return [f"Evidence file unreadable: {exc}"]
     required_keys = ["platform", "target_id", "check_type", "status", "result_hash", "timestamp", "requires_auth", "body", "headers"]
     for key in required_keys:
@@ -416,11 +416,11 @@ def _check_evidence_compliance(path: Path) -> List[str]:
     return issues
 
 
-def _check_manifest_compliance(path: Path) -> List[str]:
-    issues: List[str] = []
+def _check_manifest_compliance(path: Path) -> list[str]:
+    issues: list[str] = []
     try:
         text = path.read_text(encoding="utf-8")
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001
         return [f"Manifest file unreadable: {exc}"]
     seen = 0
     for lineno, line in enumerate(text.splitlines(), 1):
@@ -428,7 +428,7 @@ def _check_manifest_compliance(path: Path) -> List[str]:
             continue
         try:
             data = json.loads(line)
-        except Exception as exc:
+        except Exception as exc:  # noqa: BLE001
             issues.append(f"Manifest line {lineno} invalid JSON: {exc}")
             continue
         seen += 1
@@ -450,7 +450,7 @@ def _check_manifest_compliance(path: Path) -> List[str]:
     return issues
 
 
-def _main(argv: List[str] | None = None) -> int:
+def _main(argv: list[str] | None = None) -> int:
     import argparse
     parser = argparse.ArgumentParser(description="zqm-bounty-hub compliance checker")
     parser.add_argument("--payload", help="Path to JSON report payload", default=None)
@@ -460,7 +460,7 @@ def _main(argv: List[str] | None = None) -> int:
     if args.payload:
         try:
             payload = json.loads(Path(args.payload).read_text(encoding="utf-8"))
-        except Exception as exc:
+        except Exception as exc:  # noqa: BLE001
             print(f"Payload unreadable: {exc}")
             return 2
         issues = check_report_payload(payload)

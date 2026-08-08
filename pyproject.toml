@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zqm-bounty-hub"
+version = "0.1.0"
+description = "ZQM Bounty Hub"
+readme = "README.md"
+license = {text = "MIT"}
+# authors = see repository metadata
+requires-python = ">=3.11"
+keywords = []
+dependencies = [
+    "zqm-intel-platforms>=0.1.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[project.urls]
+Homepage = "https://github.com/ZQM-Labs/zqm-bounty-hub"
+Repository = "https://github.com/ZQM-Labs/zqm-bounty-hub.git"

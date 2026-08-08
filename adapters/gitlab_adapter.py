@@ -5,11 +5,12 @@ This adapter provides integration with GitLab's bug bounty and security research
 It handles authentication, target enumeration, and evidence collection.
 """
 
-import os
 import json
-import requests
-from typing import Dict, List, Optional
+import os
+from datetime import UTC as _UTC
 from datetime import datetime
+
+import requests
 
 
 class GitLabAdapter:
@@ -18,7 +19,7 @@ class GitLabAdapter:
     PLATFORM_ID = "gitlab"
     BASE_URL = "https://gitlab.com/api/v4"
     
-    def __init__(self, api_token: Optional[str] = None):
+    def __init__(self, api_token: str | None = None):
         """
         Initialize GitLab adapter.
         
@@ -35,7 +36,7 @@ class GitLabAdapter:
             "Content-Type": "application/json"
         })
     
-    def verify_auth(self) -> Dict:
+    def verify_auth(self) -> dict:
         """
         Verify authentication with GitLab API.
         
@@ -51,16 +52,16 @@ class GitLabAdapter:
                 "status": "verified",
                 "user": user.get("username"),
                 "email": user.get("public_email"),
-                "verified_at": datetime.utcnow().isoformat() + "Z"
+                "verified_at": datetime.now(_UTC).isoformat() + "Z"
             }
-        except Exception as e:
+        except RuntimeError:
             return {
                 "status": "failed",
-                "error": str(e),
-                "verified_at": datetime.utcnow().isoformat() + "Z"
+                "error": "runtime_error",
+                "verified_at": datetime.now(_UTC).isoformat() + "Z"
             }
     
-    def get_program_targets(self, program_id: str) -> Dict:
+    def get_program_targets(self, program_id: str) -> dict:
         """
         Get targets for a specific GitLab bug bounty program.
         
@@ -100,15 +101,15 @@ class GitLabAdapter:
                     for issue in issues[:10]  # Limit to 10
                 ]
             }
-        except Exception as e:
+        except RuntimeError:
             return {
                 "platform": "gitlab",
                 "target_id": program_id,
                 "status": "error",
-                "error": str(e)
+                "error": "runtime_error"
             }
     
-    def search_vulnerabilities(self, query: str) -> List[Dict]:
+    def search_vulnerabilities(self, query: str) -> list[dict]:
         """
         Search for vulnerability-related issues across GitLab.
         
@@ -137,10 +138,10 @@ class GitLabAdapter:
                 }
                 for issue in issues
             ]
-        except Exception as e:
+        except Exception:  # noqa: BLE001
             return []
     
-    def get_merge_requests(self, project_id: str, state: str = "all") -> Dict:
+    def get_merge_requests(self, project_id: str, state: str = "all") -> dict:
         """
         Get merge requests for a project (potential security fixes).
         
@@ -174,15 +175,15 @@ class GitLabAdapter:
                     for mr in mrs[:10]
                 ]
             }
-        except Exception as e:
+        except RuntimeError:
             return {
                 "platform": "gitlab",
                 "target_id": project_id,
                 "status": "error",
-                "error": str(e)
+                "error": "runtime_error"
             }
     
-    def run_security_checks(self, target_id: str, check_types: List[str]) -> Dict:
+    def run_security_checks(self, target_id: str, check_types: list[str]) -> dict:
         """
         Run security checks on a GitLab target.
         
@@ -197,7 +198,7 @@ class GitLabAdapter:
             "platform": "gitlab",
             "target_id": target_id,
             "checks_run": [],
-            "timestamp": datetime.utcnow().isoformat() + "Z"
+            "timestamp": datetime.now(_UTC).isoformat() + "Z"
         }
         
         if "web_app" in check_types or "api" in check_types:

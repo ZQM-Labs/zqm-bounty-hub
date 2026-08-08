@@ -6,16 +6,15 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
 import time
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any
 
 DEFAULT_CACHE_PATH = Path(__file__).resolve().parents[1] / "outputs" / ".cache" / "compliance_cache.json"
 TTL_SECONDS = 60 * 60  # 1 hour
 
 
-def _read_cache( path: Path) -> Dict[str, Any]:
+def _read_cache( path: Path) -> dict[str, Any]:
     if not path.exists():
         return {"entries": {}}
     try:
@@ -23,11 +22,11 @@ def _read_cache( path: Path) -> Dict[str, Any]:
         if not isinstance(data, dict) or "entries" not in data or not isinstance(data["entries"], dict):
             return {"entries": {}}
         return data
-    except Exception:
+    except Exception:  # noqa: BLE001
         return {"entries": {}}
 
 
-def _write_cache(path: Path, data: Dict[str, Any]) -> None:
+def _write_cache(path: Path, data: dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(".tmp")
     tmp.write_text(json.dumps(data, indent=2), encoding="utf-8")
@@ -38,7 +37,7 @@ def _cache_key(check_type: str, target_id: str) -> str:
     return f"{check_type}\0{target_id}"
 
 
-def get_cached(check_type: str, target_id: str, path: Path = DEFAULT_CACHE_PATH) -> Optional[Dict[str, Any]]:
+def get_cached(check_type: str, target_id: str, path: Path = DEFAULT_CACHE_PATH) -> dict[str, Any] | None:
     cache = _read_cache(path)
     key = _cache_key(check_type, target_id)
     entry = cache.get("entries", {}).get(key)
@@ -50,7 +49,7 @@ def get_cached(check_type: str, target_id: str, path: Path = DEFAULT_CACHE_PATH)
     return entry
 
 
-def set_cached(check_type: str, target_id: str, value: Dict[str, Any], path: Path = DEFAULT_CACHE_PATH) -> None:
+def set_cached(check_type: str, target_id: str, value: dict[str, Any], path: Path = DEFAULT_CACHE_PATH) -> None:
     cache = _read_cache(path)
     cache["entries"][_cache_key(check_type, target_id)] = {
         "timestamp": time.time(),
@@ -81,7 +80,7 @@ def _prune_entries(cache_path: Path = DEFAULT_CACHE_PATH) -> None:
     cleanup(cache_path)
 
 
-def _main(argv: List[str] | None = None) -> int:
+def _main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="compliance cache manager")
     parser.add_argument("--cleanup", action="store_true", help="remove expired entries")
     args = parser.parse_args(argv)

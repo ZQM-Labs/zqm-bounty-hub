@@ -10,13 +10,13 @@ No fuzzing, no scanners, no disruption.
 from __future__ import annotations
 
 import json
-import os
 import re
 import subprocess
+import sys
 import time
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any
 
 SKILL_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(SKILL_DIR / "scripts"))
@@ -101,10 +101,10 @@ def _sha256(s: str) -> str:
 
 
 def _now() -> str:
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
-def _save(platform: str, target_id: str, check_type: str, body: Dict[str, Any]) -> Path:
+def _save(platform: str, target_id: str, check_type: str, body: dict[str, Any]) -> Path:
     result_hash = _sha256(json.dumps(body, ensure_ascii=False, default=str))
     evidence = {
         "platform": platform,
@@ -118,13 +118,12 @@ def _save(platform: str, target_id: str, check_type: str, body: Dict[str, Any]) 
         "headers": {},
         "notes": "narrow information-exposure reconnaissance",
     }
-    path = EVIDENCE_DIR / f"{datetime.now(timezone.utc).strftime('%Y%m%d%H%M%S')}_inf_exposure_{target_id}_{check_type}_raw.json"
+    path = EVIDENCE_DIR / f"{datetime.now(UTC).strftime('%Y%m%d%H%M%S')}_inf_exposure_{target_id}_{check_type}_raw.json"
     path.write_text(json.dumps(evidence, indent=2, ensure_ascii=False), encoding="utf-8")
     return path
 
 
-def curl_get(host: str, path: str) -> Dict[str, Any]:
-    import subprocess
+def curl_get(host: str, path: str) -> dict[str, Any]:
     cmd = ["curl", "-sS", "-i", "--max-time", "20", f"https://{host}{path}"]
     try:
         proc = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
@@ -133,7 +132,7 @@ def curl_get(host: str, path: str) -> Dict[str, Any]:
         header_text = parts[0] if parts else ""
         body = parts[1] if len(parts) > 1 else ""
         status = None
-        hdrs: Dict[str, str] = {}
+        hdrs: dict[str, str] = {}
         for line in header_text.splitlines():
             if line.lower().startswith("http/"):
                 parts_line = line.split(" ", 2)
@@ -150,11 +149,11 @@ def curl_get(host: str, path: str) -> Dict[str, Any]:
             "body": body,
             "error": None,
         }
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001
         return {"host": host, "path": path, "status": None, "headers": {}, "body": None, "error": str(exc)}
 
 
-def scan_for_exposure(body: str, headers: Dict[str, str]) -> List[str]:
+def scan_for_exposure(body: str, headers: dict[str, str]) -> list[str]:
     hits = []
     blob = (body or "") + "\n" + "\n".join(headers.values())
     for pat in INFO_EXPOSURE_PATTERNS:
@@ -164,7 +163,7 @@ def scan_for_exposure(body: str, headers: Dict[str, str]) -> List[str]:
 
 
 def main() -> int:
-    run_id = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
+    run_id = datetime.now(UTC).strftime("%Y%m%d%H%M%S")
     print(f"Starting narrow information-exposure reconnaissance run {run_id}")
     findings = []
 
@@ -228,7 +227,7 @@ def main() -> int:
                 "findings_count": len(host_findings),
             })
 
-    out = OUTPUT_DIR / f"{datetime.now(timezone.utc).strftime('%Y-%m-%d')}_h1_info_exposure_recon.json"
+    out = OUTPUT_DIR / f"{datetime.now(UTC).strftime('%Y-%m-%d')}_h1_info_exposure_recon.json"
     out.write_text(json.dumps({"run_id": run_id, "findings": findings}, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"\nSaved: {out}")
     return 0

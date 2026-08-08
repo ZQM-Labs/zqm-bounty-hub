@@ -12,12 +12,11 @@ No active scanning, no fuzzing, no disruption.
 from __future__ import annotations
 
 import json
-import os
 import sys
 import time
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any
 
 SKILL_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(SKILL_DIR / "scripts"))
@@ -53,10 +52,10 @@ def _sha256(s: str) -> str:
 
 
 def _now() -> str:
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
-def _save(platform: str, target_id: str, check_type: str, body: Dict[str, Any]) -> Path:
+def _save(platform: str, target_id: str, check_type: str, body: dict[str, Any]) -> Path:
     result_hash = _sha256(json.dumps(body, ensure_ascii=False, default=str))
     evidence = {
         "platform": platform,
@@ -70,22 +69,24 @@ def _save(platform: str, target_id: str, check_type: str, body: Dict[str, Any]) 
         "headers": {},
         "notes": "passive reconnaissance only",
     }
-    path = EVIDENCE_DIR / f"{datetime.now(timezone.utc).strftime('%Y%m%d%H%M%S')}_passive_{target_id}_{check_type}_raw.json"
+    path = EVIDENCE_DIR / f"{datetime.now(UTC).strftime('%Y%m%d%H%M%S')}_passive_{target_id}_{check_type}_raw.json"
     path.write_text(json.dumps(evidence, indent=2, ensure_ascii=False), encoding="utf-8")
     return path
 
 
-def passive_dns(host: str) -> Dict[str, Any]:
+def passive_dns(host: str) -> dict[str, Any]:
     import socket
     try:
         ip = socket.gethostbyname(host)
         return {"host": host, "ip": ip, "error": None}
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001
         return {"host": host, "ip": None, "error": str(exc)}
 
 
-def crt_sh(host: str) -> Dict[str, Any]:
-    import urllib.request, urllib.error, json as _json
+def crt_sh(host: str) -> dict[str, Any]:
+    import json as _json
+    import urllib.error
+    import urllib.request
     url = f"https://crt.sh/?q={host}&output=json"
     try:
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
@@ -97,12 +98,14 @@ def crt_sh(host: str) -> Dict[str, Any]:
             if name:
                 names.append(name)
         return {"host": host, "names": names, "count": len(names), "error": None}
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001
         return {"host": host, "names": [], "count": 0, "error": str(exc)}
 
 
-def wayback(host: str) -> Dict[str, Any]:
-    import urllib.request, urllib.error, json as _json
+def wayback(host: str) -> dict[str, Any]:
+    import json as _json
+    import urllib.error
+    import urllib.request
     url = f"https://archive.org/wayback/available?url={host}"
     try:
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
@@ -110,12 +113,14 @@ def wayback(host: str) -> Dict[str, Any]:
             data = _json.loads(r.read().decode("utf-8", errors="ignore"))
         snap = data.get("archived_snapshots", {}).get("closest", {})
         return {"host": host, "available": bool(snap), "url": snap.get("url"), "timestamp": snap.get("timestamp"), "error": None}
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001
         return {"host": host, "available": False, "url": None, "timestamp": None, "error": str(exc)}
 
 
-def github_search(host: str) -> Dict[str, Any]:
-    import urllib.request, urllib.error, json as _json
+def github_search(host: str) -> dict[str, Any]:
+    import json as _json
+    import urllib.error
+    import urllib.request
     query = f'"{host}"'
     url = f"https://api.github.com/search/code?q={urllib.parse.quote(query)}"
     try:
@@ -129,12 +134,13 @@ def github_search(host: str) -> Dict[str, Any]:
             "items": [{"name": it.get("name"), "html_url": it.get("html_url"), "repo": it.get("repository", {}).get("full_name")} for it in items],
             "error": None,
         }
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001
         return {"host": host, "total": 0, "items": [], "error": str(exc)}
 
 
-def public_headers(host: str) -> Dict[str, Any]:
-    import urllib.request, urllib.error
+def public_headers(host: str) -> dict[str, Any]:
+    import urllib.error
+    import urllib.request
     url = f"https://{host}"
     try:
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"}, method="GET")
@@ -155,12 +161,12 @@ def public_headers(host: str) -> Dict[str, Any]:
             "headers": dict(list(headers.items())[:30]),
             "error": str(exc),
         }
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001
         return {"host": host, "status": None, "headers": {}, "error": str(exc)}
 
 
 def main() -> int:
-    run_id = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
+    run_id = datetime.now(UTC).strftime("%Y%m%d%H%M%S")
     print(f"Starting passive reconnaissance run {run_id}")
     results = []
 
@@ -194,7 +200,7 @@ def main() -> int:
 
             time.sleep(1.5)
 
-    out = OUTPUT_DIR / f"{datetime.now(timezone.utc).strftime('%Y-%m-%d')}_h1_passive_recon.json"
+    out = OUTPUT_DIR / f"{datetime.now(UTC).strftime('%Y-%m-%d')}_h1_passive_recon.json"
     out.write_text(json.dumps({"run_id": run_id, "results": results}, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"\nSaved: {out}")
     return 0

@@ -14,16 +14,16 @@ import json
 import os
 import sys
 import time
-from datetime import datetime, timezone
+from datetime import UTC as _UTC
+from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any
 
 SKILL_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(SKILL_DIR / "scripts"))
 
-from adapter_registry import load_routing
 import h1_api_client as h1
-
+from adapter_registry import load_routing  # noqa: F401
 
 root = r"C:\Users\zqmco\.hermes\shared\skills\zqm-bounty-hub\outputs"
 EVIDENCE_DIR = Path(root) / "evidence"
@@ -41,7 +41,7 @@ PRIORITY_HANDLES = [
 
 
 def _now() -> str:
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(_UTC).isoformat()
 
 
 def _sha256(s: str) -> str:
@@ -54,15 +54,15 @@ def _ensure_dirs() -> None:
     MANIFEST_DIR.mkdir(parents=True, exist_ok=True)
 
 
-def _save_evidence(evidence: Dict[str, Any]) -> Path:
-    run_id = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
+def _save_evidence(evidence: dict[str, Any]) -> Path:
+    run_id = datetime.now(_UTC).strftime("%Y%m%d%H%M%S")
     task_id = f"h1_{evidence['target_id']}_{evidence['check_type']}"
     path = EVIDENCE_DIR / f"{run_id}_{task_id}_raw.json"
     path.write_text(json.dumps(evidence, indent=2, ensure_ascii=False), encoding="utf-8")
     return path
 
 
-def _save_manifest(manifest: Dict[str, Any]) -> Path:
+def _save_manifest(manifest: dict[str, Any]) -> Path:
     run_id = manifest["run_id"]
     path = MANIFEST_DIR / f"{run_id}_hackerone_manifest.jsonl"
     with open(path, "a", encoding="utf-8") as f:
@@ -70,7 +70,7 @@ def _save_manifest(manifest: Dict[str, Any]) -> Path:
     return path
 
 
-def _build_evidence(platform: str, target_id: str, check_type: str, status: str, body: Dict[str, Any], requires_auth: bool = True) -> Dict[str, Any]:
+def _build_evidence(platform: str, target_id: str, check_type: str, status: str, body: dict[str, Any], requires_auth: bool = True) -> dict[str, Any]:
     result_hash = _sha256(json.dumps(body, ensure_ascii=False, default=str))
     evidence = {
         "platform": platform,
@@ -85,7 +85,7 @@ def _build_evidence(platform: str, target_id: str, check_type: str, status: str,
     }
     _save_evidence(evidence)
     manifest = {
-        "run_id": datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S"),
+        "run_id": datetime.now(_UTC).strftime("%Y%m%d%H%M%S"),
         "platform": platform,
         "result_count": 1 if status == "ok" else 0,
         "result_hash": result_hash,
@@ -99,57 +99,57 @@ def _build_evidence(platform: str, target_id: str, check_type: str, status: str,
     return evidence
 
 
-def _get_program(handle: str) -> Dict[str, Any]:
+def _get_program(handle: str) -> dict[str, Any]:
     try:
         body = h1.program_by_handle(handle)
         _build_evidence("hackerone", f"prog_{handle}", "program_detail", "ok", body)
         return {"ok": True, "body": body}
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001
         body = {"error": str(exc)}
         _build_evidence("hackerone", f"prog_{handle}", "program_detail", "error", body)
         return {"ok": False, "body": body, "error": str(exc)}
 
 
-def _get_scopes(handle: str) -> List[Dict[str, Any]]:
+def _get_scopes(handle: str) -> list[dict[str, Any]]:
     try:
         data = h1.structured_scopes(handle)
         body = {"scopes": data}
         _build_evidence("hackerone", f"prog_{handle}", "structured_scopes", "ok", body)
         return data
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001
         body = {"error": str(exc)}
         _build_evidence("hackerone", f"prog_{handle}", "structured_scopes", "error", body)
         return []
 
 
-def _get_weaknesses(handle: str) -> List[Dict[str, Any]]:
+def _get_weaknesses(handle: str) -> list[dict[str, Any]]:
     try:
         data = h1.program_weaknesses(handle)
         body = {"weaknesses": data}
         _build_evidence("hackerone", f"prog_{handle}", "weaknesses", "ok", body)
         return data
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001
         body = {"error": str(exc)}
         _build_evidence("hackerone", f"prog_{handle}", "weaknesses", "error", body)
         return []
 
 
-def _get_exclusions(handle: str) -> List[Dict[str, Any]]:
+def _get_exclusions(handle: str) -> list[dict[str, Any]]:
     try:
         data = h1.scope_exclusions(handle)
         body = {"scope_exclusions": data}
         _build_evidence("hackerone", f"prog_{handle}", "scope_exclusions", "ok", body)
         return data
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001
         body = {"error": str(exc)}
         _build_evidence("hackerone", f"prog_{handle}", "scope_exclusions", "error", body)
         return []
 
 
-def summarize_scope(scopes: List[Dict[str, Any]]) -> Dict[str, Any]:
+def summarize_scope(scopes: list[dict[str, Any]]) -> dict[str, Any]:
     eligible_bounty = [s for s in scopes if s.get("attributes", {}).get("eligible_for_bounty")]
     eligible_submission = [s for s in scopes if s.get("attributes", {}).get("eligible_for_submission")]
-    asset_types: Dict[str, int] = {}
+    asset_types: dict[str, int] = {}
     for s in scopes:
         at = s.get("attributes", {}).get("asset_type") or "UNKNOWN"
         asset_types[at] = asset_types.get(at, 0) + 1
@@ -166,7 +166,7 @@ def summarize_scope(scopes: List[Dict[str, Any]]) -> Dict[str, Any]:
     }
 
 
-def build_target_plan(handle: str) -> Dict[str, Any]:
+def build_target_plan(handle: str) -> dict[str, Any]:
     print(f"[*] Investigating {handle} ...")
     program = _get_program(handle)
     if not program["ok"]:
@@ -210,17 +210,17 @@ def build_target_plan(handle: str) -> Dict[str, Any]:
 
 def main() -> int:
     _ensure_dirs()
-    run_id = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
+    run_id = datetime.now(_UTC).strftime("%Y%m%d%H%M%S")
     print(f"Starting full-scope investigation run {run_id}")
     print(f"Targets: {', '.join(PRIORITY_HANDLES)}")
     print()
 
-    plans: List[Dict[str, Any]] = []
+    plans: list[dict[str, Any]] = []
     for handle in PRIORITY_HANDLES:
         try:
             plan = build_target_plan(handle)
             plans.append(plan)
-        except Exception as exc:
+        except Exception as exc:  # noqa: BLE001
             plans.append({
                 "handle": handle,
                 "status": "exception",
@@ -230,7 +230,7 @@ def main() -> int:
         # gentle pacing; respect 50 req/min structured scope boundary
         time.sleep(1.2)
 
-    out_path = OUT_PATH.parent / f"{datetime.now(timezone.utc).strftime('%Y-%m-%d')}_h1_full_scope_investigation.json"
+    out_path = MANIFEST_DIR / f"{datetime.now(_UTC).strftime('%Y-%m-%d')}_h1_full_scope_investigation.json"
     out_path.write_text(json.dumps({"run_id": run_id, "plans": plans}, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"\nSaved investigation: {out_path}")
 

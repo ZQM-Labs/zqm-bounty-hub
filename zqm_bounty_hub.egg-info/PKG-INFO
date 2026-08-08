@@ -1,3 +1,16 @@
+Metadata-Version: 2.4
+Name: zqm-bounty-hub
+Version: 0.1.0
+Summary: ZQM Bounty Hub
+License: MIT
+Project-URL: Homepage, https://github.com/ZQM-Labs/zqm-bounty-hub
+Project-URL: Repository, https://github.com/ZQM-Labs/zqm-bounty-hub.git
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: zqm-intel-platforms>=0.1.0
+Dynamic: license-file
+
 # ZQM Bounty Hub
 
 Automation workflows for platform verification, claim processing, bounty tracking, and GitHub automation.

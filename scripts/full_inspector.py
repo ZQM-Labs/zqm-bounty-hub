@@ -5,9 +5,9 @@ import json
 import os
 import sys
 import time
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any
 
 SKILL_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(SKILL_DIR / "scripts"))
@@ -25,10 +25,10 @@ def _sha256(s: str) -> str:
 
 
 def _now() -> str:
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
-def _save(platform: str, target_id: str, check_type: str, body: Dict[str, Any], run_id: str) -> Path:
+def _save(platform: str, target_id: str, check_type: str, body: dict[str, Any], run_id: str) -> Path:
     result_hash = _sha256(json.dumps(body, ensure_ascii=False, default=str))
     evidence = {
         "platform": platform,
@@ -61,7 +61,7 @@ def _save(platform: str, target_id: str, check_type: str, body: Dict[str, Any], 
 
 
 def main() -> int:
-    run_id = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
+    run_id = datetime.now(UTC).strftime("%Y%m%d%H%M%S")
     handles = ["basecamp", "shopify", "8x8-bounty", "security", "anthropic", "cloudflare"]
     summaries = []
     for handle in handles:
