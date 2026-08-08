@@ -1,6 +1,6 @@
-# CHANGELOG
+# Changelog
 
-## Note
-Standard documentation scaffold.
+All notable changes to this project will be documented in this file.
 
-Contact: zqmcomputing@gmail.com
+## [Unreleased]
+- Initial repository setup and commercial surface alignment.
