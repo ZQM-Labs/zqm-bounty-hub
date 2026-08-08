@@ -19,7 +19,6 @@ from typing import Any, Dict
 
 SKILL_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(SKILL_DIR / "scripts"))
-from adapter_registry import validate_evidence, validate_manifest
 EVIDENCE_DIR = SKILL_DIR / "outputs" / "evidence"
 MANIFEST_DIR = SKILL_DIR / "outputs" / "manifests"
 UNVERIFIED_REASON = "Intigriti auth contract unverified; exact endpoint path/headers unknown"

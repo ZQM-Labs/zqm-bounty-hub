@@ -19,10 +19,9 @@ from typing import Any, Dict
 
 SKILL_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(SKILL_DIR / "scripts"))
-from adapter_registry import validate_evidence, validate_manifest
 EVIDENCE_DIR = SKILL_DIR / "outputs" / "evidence"
 MANIFEST_DIR = SKILL_DIR / "outputs" / "manifests"
-UNVERIFIED_REASON = "Bugcrowd auth contract unverified; docs domain DNS failure on this host"
+REASON = "Bugcrowd auth unverified; docs domain DNS failure"
 
 
 def _ensure_dirs() -> None:
@@ -42,7 +41,7 @@ def run(target_id: str, check_type: str, parameters: Dict[str, Any]) -> Dict[str
     task_id = f"bugcrowd_{target_id}_{check_type}"
 
     body = {
-        "error": UNVERIFIED_REASON,
+        "error": REASON,
         "required_action": "Verify Bugcrowd API auth header/path format before use",
     }
     status = "unsupported_platform"
@@ -58,7 +57,7 @@ def run(target_id: str, check_type: str, parameters: Dict[str, Any]) -> Dict[str
         "requires_auth": True,
         "body": body,
         "headers": {},
-        "notes": UNVERIFIED_REASON,
+        "notes": REASON,
     }
     evidence_path = EVIDENCE_DIR / f"{run_id}_{task_id}_raw.json"
     evidence_path.write_text(json.dumps(evidence, indent=2, ensure_ascii=False), encoding="utf-8")

@@ -1,0 +1,24 @@
+[lint]
+select = ["E", "F", "I", "PIE", "PLW", "RUF"]
+ignore = [
+    "E501",
+    "F841",
+    "I001",
+    "S110",
+    "BLE001",
+    "F401",
+    "E402",
+    "PIE810",
+    "PLW1510",
+    "E401",
+]
+
+exclude = [
+    ".git",
+    "__pycache__",
+    ".venv",
+    "venv",
+    "Python",
+    ".tmp",
+    "**/Python/**",
+]
