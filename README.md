@@ -1,5 +1,13 @@
 # ZQM Bounty Hub
 
+<p align="left">
+  <img src="https://github.com/ZQM-Labs/zqm-bounty-hub/actions/workflows/ci.yml/badge.svg" alt="CI" />
+  <img src="https://img.shields.io/badge/tests-passing-brightgreen" alt="Tests" />
+  <img src="https://img.shields.io/badge/ruff-passing-blue" alt="Ruff" />
+  <img src="https://img.shields.io/badge/mypy-passing-blue" alt="Mypy" />
+</p>
+
+
 Automation workflows for platform verification, claim processing, bounty tracking, and GitHub automation.
 
 ## What is this?
