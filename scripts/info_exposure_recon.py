@@ -149,7 +149,7 @@ def curl_get(host: str, path: str) -> dict[str, Any]:
             "body": body,
             "error": None,
         }
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001
         return {"host": host, "path": path, "status": None, "headers": {}, "body": None, "error": str(exc)}
 
 

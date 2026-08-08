@@ -64,5 +64,114 @@ MIT — see LICENSE file.
 
 ## Contact
 
-Alex Zelenski — zqmcomputing@gmail.com
-Brand: ZQM Computing / ZQM-Labs
+## Adapter Contract
+
+Every platform adapter must expose:
+- `run(target_id, check_type, parameters) -> Dict[str, Any]`
+- `supports(check_type) -> bool` (optional)
+- `validate(parameters) -> None` (optional)
+
+Return envelope fields:
+- `platform`
+- `target_id`
+- `check_type`
+- `status`
+- `body`
+- `headers`
+- `timestamp`
+- `requires_auth` (bool)
+- `result_hash` (SHA-256[:16], deterministic)
+
+On unsupported `check_type`, return:
+```json
+{
+  "status": "unsupported",
+  "body": {"supported": ["web_app", "api"]}
+}
+```
+
+## Review Checklist
+
+Before every run:
+- [ ] Loaded target payload from `targets/*_targets.json`
+- [ ] Target IDs are distinct per platform/check
+- [ ] No credential leakage in logs/artifacts
+- [ ] Auth env vars present and non-empty
+- [ ] `output_root/evidence/` and `output_root/manifests/` writable
+- [ ] No prior evidence for identical `run_id` + `task_id` without explicit overwrite policy
+- [ ] Platform rate limits respected
+- [ ] Windows path/pathlib/locking/antivirus mitigations in place if on Windows
+
+## Platform Review Policies
+
+- **HackerOne**: No public disclosure before patch. Respect rate limits. Do not disrupt service.
+- **Bugcrowd**: Managed programs require adherence to CrowdMatch/reporting rules. Do not disrupt service.
+- **Intigriti**: EU/GDPR constraints apply. Do not exfiltrate personal data. Scope by DNS names only.
+
+## Windows Handling
+
+- Use `pathlib.Path` for all path operations.
+- Write evidence to `.tmp` then atomically rename to avoid AV corruption.
+- Lock manifest appends with retry/backoff or advisory lock file.
+- Keep `OUTPUT_ROOT` inside user-writable paths; avoid system temp directories.
+
+## Multi-Checker Ethics
+
+- Run one checker at a time unless parallel authorized.
+- Deduplicate findings using deterministic hashes.
+- Record checker identity in evidence filenames.
+- No automated unlimited scans or mass credential stuffing.
+
+## Network Notes
+
+- Scope by DNS name, not IP history.
+- Avoid mass DNS enumeration unless explicitly scoped.
+- Multi-region endpoints need cache/TTL handling.
+
+## Troubleshooting
+
+### Adapter returns `unsupported`
+Verify `check_type` exists in the target's `check_types[]` and the platform adapter supports it.
+
+### Credential in logs
+Mask all `api_key`, `token`, `secret`, `password` fields. Rotate exposed token immediately.
+
+### Manifest append fails on Windows
+Use retry with backoff or advisory lock file within `OUTPUT_ROOT`.
+
+### Evidence file empty/corrupt
+Real-time AV may interfere. Use atomic rename from `.tmp`.
+
+## Legal / Safe Harbor
+
+All runs must comply with:
+- Program-specific Terms of Service
+- Coordinated Vulnerability Disclosure expectations
+- Do-not-disrupt / do-not-exfiltrate principles
+- No public disclosure before vendor patch/fix
+
+This skill does not provide legal advice. Consult each program's governing docs for enforceable terms.
+
+## Documentation References
+
+- `references/integration-patterns.md` — orchestrator wiring and parallel execution patterns
+- `references/review-checklist.md` — pre/during/post flight checklist
+- `references/process-review.md` — change review criteria
+- `references/review-clarity.md` — review-worthy finding/suggestion criteria
+- `references/multi-checker-notes.md` — ethics for multiple checker workflows
+- `references/network-notes.md` — boundary and DNS scoping notes
+- `references/windows-handling.md` — Windows-specific path, caching, AV, and locking notes
+
+## Files Created / Modified
+
+See the canonical skill tree:
+`C:\Users\zqmco\.hermes\shared\skills\zqm-bounty-hub\`
+
+## Integration: zqm-intel-platforms
+
+This repo is part of the `zqm-intel-platforms` stack. It declares `zqm-intel-platforms>=0.1.0` and routes shared OSINT/CTI/SIEM/Windows-telemetry primitives through the platform hub.
+
+- `zqm-intel-platforms` README: https://github.com/ZQM-Labs/zqm-intel-platforms
+- Hub role: shared dependency and normalization layer for fleet attestation, telemetry, and evidence packaging.
+
+Do not vendor `zqm-intel-platforms` internals; consume its public interfaces only. When extending this repo, update `dependencies` and this section together so procurement and provenance stay aligned.

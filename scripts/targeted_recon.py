@@ -111,7 +111,7 @@ def curl_probe(host: str, path: str = "/", headers: dict[str, str] | None = None
             "curl_stderr": err[:500],
             "error": None,
         }
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001
         return {"host": host, "path": path, "status": None, "headers": {}, "body_sample": None, "curl_stderr": None, "error": str(exc)}
 
 

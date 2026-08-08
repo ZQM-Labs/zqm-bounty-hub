@@ -176,7 +176,7 @@ def main() -> int:
                 result = future.result()
                 if result:
                     enriched.append(result)
-            except Exception as exc:
+            except Exception as exc:  # noqa: BLE001
                 handle = futures[future].get("attributes", {}).get("handle", "?")
                 print(f"Error processing {handle}: {exc}", flush=True)
             if i % 100 == 0:

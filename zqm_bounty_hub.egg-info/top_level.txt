@@ -1,4 +1,3 @@
-Python
 adapters
 outputs
 references

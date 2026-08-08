@@ -22,8 +22,8 @@ from typing import Any
 SKILL_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(SKILL_DIR / "scripts"))
 
-import h1_api_client as h1  # noqa: E402
-from adapter_registry import load_routing  # noqa: E402, F401
+import h1_api_client as h1
+from adapter_registry import load_routing  # noqa: F401
 
 root = r"C:\Users\zqmco\.hermes\shared\skills\zqm-bounty-hub\outputs"
 EVIDENCE_DIR = Path(root) / "evidence"
@@ -104,7 +104,7 @@ def _get_program(handle: str) -> dict[str, Any]:
         body = h1.program_by_handle(handle)
         _build_evidence("hackerone", f"prog_{handle}", "program_detail", "ok", body)
         return {"ok": True, "body": body}
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001
         body = {"error": str(exc)}
         _build_evidence("hackerone", f"prog_{handle}", "program_detail", "error", body)
         return {"ok": False, "body": body, "error": str(exc)}
@@ -116,7 +116,7 @@ def _get_scopes(handle: str) -> list[dict[str, Any]]:
         body = {"scopes": data}
         _build_evidence("hackerone", f"prog_{handle}", "structured_scopes", "ok", body)
         return data
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001
         body = {"error": str(exc)}
         _build_evidence("hackerone", f"prog_{handle}", "structured_scopes", "error", body)
         return []
@@ -128,7 +128,7 @@ def _get_weaknesses(handle: str) -> list[dict[str, Any]]:
         body = {"weaknesses": data}
         _build_evidence("hackerone", f"prog_{handle}", "weaknesses", "ok", body)
         return data
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001
         body = {"error": str(exc)}
         _build_evidence("hackerone", f"prog_{handle}", "weaknesses", "error", body)
         return []
@@ -140,7 +140,7 @@ def _get_exclusions(handle: str) -> list[dict[str, Any]]:
         body = {"scope_exclusions": data}
         _build_evidence("hackerone", f"prog_{handle}", "scope_exclusions", "ok", body)
         return data
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001
         body = {"error": str(exc)}
         _build_evidence("hackerone", f"prog_{handle}", "scope_exclusions", "error", body)
         return []
@@ -220,7 +220,7 @@ def main() -> int:
         try:
             plan = build_target_plan(handle)
             plans.append(plan)
-        except Exception as exc:
+        except Exception as exc:  # noqa: BLE001
             plans.append({
                 "handle": handle,
                 "status": "exception",

@@ -22,7 +22,7 @@ def _read_cache( path: Path) -> dict[str, Any]:
         if not isinstance(data, dict) or "entries" not in data or not isinstance(data["entries"], dict):
             return {"entries": {}}
         return data
-    except Exception:
+    except Exception:  # noqa: BLE001
         return {"entries": {}}
 
 
