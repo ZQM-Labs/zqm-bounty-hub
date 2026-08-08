@@ -10,7 +10,9 @@ from pathlib import Path
 
 import requests
 
-TOKEN = os.environ.get("HACKERONE_API_TOKEN") or "HUcj8fXwP+tv37b+pQECxS65e0FeMe1Kj0eNFt6STnw="
+TOKEN = os.environ.get("HACKERONE_API_TOKEN")
+if not TOKEN:
+    raise SystemExit("Set HACKERONE_API_TOKEN before running full_bounty_review.py")
 IDENTIFIER = os.environ.get("HACKERONE_API_TOKEN_IDENTIFIER") or "zqm-computing"
 BASE = "https://api.hackerone.com/v1/hackers"
 OUT_PATH = Path(r"C:\Users\zqmco\AppData\Local\hermes\skills\zqm-bounty-hub\outputs\2026-07-05_h1_full_bounty_review.json")
