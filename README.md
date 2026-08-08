@@ -227,3 +227,12 @@ This skill does not provide legal advice. Consult each program's governing docs 
 
 See the canonical skill tree:
 `C:\Users\zqmco\.hermes\shared\skills\zqm-bounty-hub\`
+
+## Related Repositories
+
+- [ZQM-Labs/zqm-auth](https://github.com/ZQM-Labs/zqm-auth) — bug-bounty auth toolkit: token lifecycle and platform integration
+- [ZQM-Labs/bounty-tools](https://github.com/ZQM-Labs/bounty-tools) — HackerOne, GitLab, Shopify target intelligence utilities
+- [ZQM-Labs/zqm-sword](https://github.com/ZQM-Labs/zqm-sword) — endpoint defense and offensive security tooling for Windows
+- [ZQM-Labs/zqm-localhost-findings](https://github.com/ZQM-Labs/zqm-localhost-findings) — service discovery and Windows endpoint security assessment
+- [ZQM-Computing/mesh-forensics](https://github.com/ZQM-Computing/mesh-forensics) — ZQM LAN evidence collection and incident response
+- [ZQM-Labs/zqm-local-tools](https://github.com/ZQM-Labs/zqm-local-tools) — local-first security and assessment utilities
